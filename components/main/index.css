@@ -114,6 +114,10 @@
     left: 50%;
     top: 7vh;
     z-index: 22; }
+    .zmiti-main-main-ui .zmiti-hand-img canvas {
+      position: absolute;
+      left: 5%;
+      top: 3%; }
     .zmiti-main-main-ui .zmiti-hand-img img.zmiti-img-bg {
       opacity: 0;
       height: 100%;

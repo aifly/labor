@@ -105,6 +105,12 @@ $color: #fffb88;
 		top: 7vh;
 		z-index: 22;
 
+		canvas{
+			@include pos(a);
+			left: 5%;
+			top: 3%;
+		}
+
 		img.zmiti-img-bg{
 			opacity:0;
 			height: 100%;

@@ -9,9 +9,10 @@
 					
 				</div>
 				<div class='zmiti-hand-img' :style="{background: 'url('+imgs.imgBg+') no-repeat center center',backgroundSize:'cover'}">
-					<img :src="imgs.imgBg" class="zmiti-img-bg">
+					<img :src="imgs.imgBg" class="zmiti-img-bg" >
+					<canvas ref='canvas' :width='pointW' :height='pointH'></canvas>
 					<div class="zmiti-hand">
-						<img :src="imgs.myhand">
+						<img :src="imgs.myhand" @load='load'>
 					</div>
 
 					<div class='zmiti-title'>
@@ -50,13 +51,15 @@
 	import './index.css';
 	import {imgs} from '../lib/assets.js';
 	import $ from 'jquery';
-
+	import Point from './point';
 	export default {
 		props:['obserable','pv','randomPv','nickname','headimgurl'],
 		name:'zmitiindex',
 		data(){
 			return{
 				imgs,
+				pointW:0,
+				pointH:0,
 				showTeam:false,
 				showQrcode:false,
 				show:true,
@@ -65,7 +68,8 @@
 				handList,
 				currentIndex:-1,
 				iNow:-1,
-				isLeft:true
+				isLeft:true,
+				points:[]
 				
 			}
 		},
@@ -73,6 +77,11 @@
 		},
 		
 		methods:{
+			load(e){
+				this.pointW = e.target.width;
+				this.pointH = e.target.height;
+				this.initPoints();
+			},
 			 swipeLeft(){
 				var s = this;
 				if(s.currentIndex<=-1){
@@ -204,9 +213,27 @@
 				handList[currentIndex].className = classList[2];
 				this.isLeft = false;
 			},
+			initPoints(){
+
+				var canvas = this.$refs['canvas'];
+				var context = canvas.getContext('2d');
+
+				var img = new Image();
+				img.onload = ()=>{
+					for(var i = 0 ;i<100;i++){
+						var p = new Point({
+							img,
+							context,
+						})
+					}
+				}
+				img.src = imgs.logo;
+
+			}
 		},
 	
 		mounted(){
+
 
 		}
 	}
