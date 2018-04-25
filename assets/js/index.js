@@ -11988,7 +11988,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "F:\\xuchang2018\\project\\labor\\components\\index\\index.vue"
+	  var id = "E:\\project\\labor\\components\\index\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -22231,7 +22231,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "F:\\xuchang2018\\project\\labor\\components\\toast\\toast.vue"
+	  var id = "E:\\project\\labor\\components\\toast\\toast.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -22255,8 +22255,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-08c2e7a4&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue", function() {
-				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-08c2e7a4&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue");
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-7a79eb78&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-7a79eb78&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -22417,7 +22417,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "F:\\xuchang2018\\project\\labor\\components\\main\\index.vue"
+	  var id = "E:\\project\\labor\\components\\main\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -22578,19 +22578,17 @@
 					data: formData,
 					error: function error(e) {
 
-						s.detectionError = '服务器错误';
-						setTimeout(function () {
-							s.detectionError = '';
-						}, 2000);
-
+						//alert('error 服务器错误');
 						s.uploadState = 0;
 					},
 					success: function success(data) {
 
 						console.log(data);
 						//alert('服务器返回正确');
+						s.uploadState = 2;
+
+						//alert('返回正确 getret =>' + data.getret + ' getmsg =>' + data.getmsg);
 						if (data.getret === 0) {
-							s.uploadState = 2;
 							//s.deleteImg(data.getfileurl[0].datainfourl)
 							s.uploadImg = data.getfileurl[0].datainfourl;
 							s.backgroundSize = 'cover';
@@ -22923,7 +22921,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "F:\\xuchang2018\\project\\labor\\components\\music\\index.vue"
+	  var id = "E:\\project\\labor\\components\\music\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {

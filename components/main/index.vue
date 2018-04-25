@@ -133,12 +133,7 @@
 			        data: formData,
 			        error(e){
 			        	
-			        	
-			        	s.detectionError = '服务器错误';
-			          	setTimeout(()=>{
-			          		s.detectionError = '';
-			          	},2000);
-
+			        	//alert('error 服务器错误');
 			          	s.uploadState = 0;
 			          	
 			        },
@@ -146,8 +141,10 @@
 			        	 
 				        console.log(data);
 				        //alert('服务器返回正确');
+				        s.uploadState = 2;
+
+				        //alert('返回正确 getret =>' + data.getret + ' getmsg =>' + data.getmsg);
 				        if (data.getret === 0) {
-				        	s.uploadState = 2;
 	 						//s.deleteImg(data.getfileurl[0].datainfourl)
 	 						s.uploadImg = data.getfileurl[0].datainfourl;
 	 						s.backgroundSize = 'cover'
