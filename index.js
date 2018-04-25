@@ -55,7 +55,7 @@ new Vue({
 	*/
 	template: `<div>
 		<Main  v-if='show && !isShare'  :obserable='obserable'></Main>
-		<input style='position:absolute' @change='upload' type="file" ref='file'/>
+		
 		<div  v-if='!loaded' :style='{background:"#158ae4"}' class='zmiti-loading lt-full'>
 			<div class='zmiti-loading-ui'>
 				 <a href="#">
@@ -71,62 +71,7 @@ new Vue({
 	
 	</div>`,
 	methods: {
-		upload(){
-
-			this.detectionError = '正在上传，请稍后';
-
-			this.showSmileText = false;
-			this.showClipPage = true;
-			
-			var formData = new FormData();
-  		    var s = this;
-		      formData.append('setupfile', this.$refs['file'].files[0]);
-		      formData.append('uploadtype', 0);
-		     
-		      $.ajax({
-		        type: "POST",
-		        contentType: false,
-		        processData: false,
-		        url: window.protocol+'//h5.zhongguowangshi.com/interface/public/index.php?s=v2/share/upload_file/',
-		        data: formData,
-		        error(e){
-		        	
-		        	s.detectionError = '服务器错误';
-		          	setTimeout(()=>{
-		          		s.detectionError = '';
-		          	},2000)
-		          	
-		        },
-		        success(data){
-		        	 
-			        console.log(data);
-			        //alert('服务器返回正确');
-			        if (data.getret === 0) {
- 						s.deleteImg(data.getfileurl[0].datainfourl)
-			        }else{
-			        	setTimeout(()=>{
-			        		s.detectionError = '';
-			        	},2000)
-			        }
-		        }
-		      });
-		},
-		deleteImg(url){//删除原图
-
-			setTimeout(()=>{
-				$.ajax({
-					url: window.protocol+'//h5.zhongguowangshi.com/interface/public/index.php?s=v2/share/delete_file/',
-					type:'post',
-					data:{
-						filepath:url
-					},
-					success(data){
-						console.log(data);
-					}
-				})
-
-			},2000)
-			},
+		
 		loading: function(arr, fn, fnEnd) {
 			var len = arr.length;
 			var count = 0;

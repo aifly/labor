@@ -6,8 +6,12 @@
 	arrow: './assets/images/arrow.png',
 	imgBg:'./assets/images/img-bg.png',
 	hand1:'./assets/images/hand1.jpg',
+	hand2:'./assets/images/hand2.jpg',
+	hand3:'./assets/images/hand3.jpg',
+	hand4:'./assets/images/hand4.jpg',
 	myhand:'./assets/images/myhand.jpg',
-	subtitle:'./assets/images/subtitle.png'
+	subtitle:'./assets/images/subtitle.png',
+	upload:'./assets/images/upload.jpg'
 
 }
 
@@ -19,17 +23,22 @@ var handList = [
 		className: "active transition"
 	},
 	{
-		url:imgs.hand1,
+		url:imgs.hand2,
 		name:"工人",
 		className:'right'
 	},{
-		url:imgs.hand1,
+		url:imgs.hand3,
 		name:"厨师",
 		className:'right'
 	},{
-		url:imgs.hand1,
+		url:imgs.hand4,
 		name:"教师",
-		className:'left'
+		className:'right'
+	},{
+		url:imgs.upload,
+		name:"",
+		className:'left',
+		type:'upload'
 	}
 ];
 
