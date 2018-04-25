@@ -7,6 +7,16 @@ $color: #fffb88;
 .zmiti-main-main-ui{
 	//
 
+	&.lt-full{
+		width: $viewW;
+	}
+
+	.lt-full{
+		width: $viewW;
+	}	
+
+
+
 
 	.zmiti-bg-mask{
 		z-index: 20;

@@ -133,7 +133,7 @@
 			        data: formData,
 			        error(e){
 			        	
-			        	//alert('error 服务器错误');
+			        	alert('error 服务器错误');
 			          	s.uploadState = 0;
 			          	
 			        },
@@ -143,7 +143,7 @@
 				        //alert('服务器返回正确');
 				        s.uploadState = 2;
 
-				        //alert('返回正确 getret =>' + data.getret + ' getmsg =>' + data.getmsg);
+				        alert('返回正确 getret =>' + data.getret + ' getmsg =>' + data.getmsg);
 				        if (data.getret === 0) {
 	 						//s.deleteImg(data.getfileurl[0].datainfourl)
 	 						s.uploadImg = data.getfileurl[0].datainfourl;
@@ -176,6 +176,8 @@
 				this.pointW = e.target.width;
 				this.pointH = e.target.height;
 				setTimeout(()=>{this.initPoints();},100)
+
+				
 			},
 			 swipeLeft(){
 				var s = this;

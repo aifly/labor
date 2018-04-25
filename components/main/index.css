@@ -1,5 +1,5 @@
 .lt-full {
-  width: 100%;
+  width: 750px;
   height: 100%;
   position: absolute;
   left: 0;
@@ -34,6 +34,10 @@
   transform-style: preserve-3d;
   perspective: 800px;
   -webkit-perspective: 800px; }
+  .zmiti-main-main-ui.lt-full {
+    width: 750px; }
+  .zmiti-main-main-ui .lt-full {
+    width: 750px; }
   .zmiti-main-main-ui .zmiti-bg-mask {
     z-index: 20;
     background: rgba(47, 7, 8, 0.56); }
