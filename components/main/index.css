@@ -1,5 +1,5 @@
 .lt-full {
-  width: 750px;
+  width: 100%;
   height: 100%;
   position: absolute;
   left: 0;
@@ -34,21 +34,22 @@
   transform-style: preserve-3d;
   perspective: 800px;
   -webkit-perspective: 800px; }
-  .zmiti-main-main-ui.lt-full {
-    width: 750px; }
-  .zmiti-main-main-ui .lt-full {
-    width: 750px; }
   .zmiti-main-main-ui .zmiti-bg-mask {
     z-index: 20;
     background: rgba(47, 7, 8, 0.56); }
   .zmiti-main-main-ui .zmiti-bg.main-enter-active, .zmiti-main-main-ui .zmiti-bg.main-leave-active {
-    -webkit-transition: 0.4s;
-    transition: 0.4s; }
+    -webkit-transition: 1s;
+    transition: 1s; }
   .zmiti-main-main-ui .zmiti-bg.main-enter, .zmiti-main-main-ui .zmiti-bg.main-leave-to {
     opacity: 0; }
   .zmiti-main-main-ui .zmiti-hand-page {
     -webkit-transform-origin: center 90%;
     transform-origin: center 90%; }
+    .zmiti-main-main-ui .zmiti-hand-page.hand-enter-active, .zmiti-main-main-ui .zmiti-hand-page.hand-leave-active {
+      -webkit-transition: 1s 0.5s;
+      transition: 1s 0.5s; }
+    .zmiti-main-main-ui .zmiti-hand-page.hand-enter, .zmiti-main-main-ui .zmiti-hand-page.hand-leave-to {
+      opacity: 0; }
     .zmiti-main-main-ui .zmiti-hand-page.left {
       opacity: 1;
       -webkit-transform: translate3d(-5.66667rem, 0, 0) scale(0.3);
@@ -104,17 +105,25 @@
   .zmiti-main-main-ui .zmiti-img-desc {
     position: absolute;
     bottom: 5%;
-    left: 5%;
-    height: 80px;
-    width: 90%;
+    left: 15%;
+    height: 40px;
+    width: 70%;
+    color: #912426;
+    line-height: 40px;
+    text-align: center;
     box-sizing: box-sizing; }
     .zmiti-main-main-ui .zmiti-img-desc textarea {
-      border: none;
+      color: #912426;
       outline: none;
-      width: 100%;
+      width: 50%;
       height: 100%;
       background: transparent;
-      font-size: 40px; }
+      font-size: 30px;
+      vertical-align: bottom;
+      border: none;
+      border-bottom: 1px solid #912426;
+      border-radius: 0;
+      resize: none; }
   .zmiti-main-main-ui .zmiti-start {
     width: 160px;
     height: 60px;
@@ -131,7 +140,7 @@
   .zmiti-main-main-ui .zmiti-hand-img {
     position: absolute;
     z-index: 10;
-    height: 84vh;
+    height: 84%;
     -webkit-transform: translate3d(-50%, 0, 0);
     transform: translate3d(-50%, 0, 0);
     left: 50%;
@@ -180,11 +189,12 @@
       bottom: 6%; }
     .zmiti-main-main-ui .zmiti-hand-img .zmiti-name {
       position: absolute;
-      bottom: 5%;
+      bottom: 40px;
       right: 5%;
       color: #912426;
-      font-size: 76px;
       font-weight: bold; }
+      .zmiti-main-main-ui .zmiti-hand-img .zmiti-name span {
+        font-size: 76px; }
   .zmiti-main-main-ui .zmiti-ok {
     position: absolute;
     height: 60px;
@@ -196,7 +206,8 @@
     text-align: center;
     line-height: 60px;
     left: 50%;
-    margin-left: -70px; }
+    margin-left: -70px;
+    z-index: 205; }
   .zmiti-main-main-ui .zmiti-year {
     position: absolute;
     width: 80%;

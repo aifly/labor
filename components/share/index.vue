@@ -1,61 +1,89 @@
 <template>
 	<div  class="lt-full zmiti-share-main-ui " :style="{background:'url('+imgs.shareBg+') no-repeat center top',backgroundSize:'cover'}"   :class="{'show':show}">
 		 
-		<transition name="zmiti-scale"
-			@after-enter="afterEnter"
-		 >
+		<transition name="zmiti-scale" @after-enter="afterEnter">
 		    <div ref='createimgs'  class="zmiti-createimg"  v-if='createImg'>
 				<img :src="createImg" alt="">
 			</div>
-		  </transition>
+		</transition>
+		
 
-		 <div class="lt-full zmiti-share-main" :style="{width:viewW+'px',height:viewH+'px',background:'url('+imgs.shareimgBg+') no-repeat center center',backgroundSize:'100% 100%'}" v-if='!createImg && index>-1' ref='zmiti-cache-page'>
-		 	<div class="zmiti-share-img-C">
-		 		<div class="zmiti-share-img" :style="{background: 'url('+mainImgList[index][0].url+') no-repeat center center',backgroundSize:'cover'}"></div>
-		 		<div class="zmiti-qrcode">
-		 			<img @touchstart='imgStart($event)' :src="imgs.qrcode" class="zmiti-qrcode-img" />
-		 			<img @touchstart='imgStart($event)' :src="imgs.liulian" class="zmiti-liulian">
-					<div class="zmiti-date">{{date}}</div>
-		 			<div class="zmiti-headimg" v-if='headimg'>
-		 				<img @touchstart='imgStart($event)' :src="headimg">
-		 			</div>
-		 		</div>
-		 	</div>
-		 </div>
-
-		 <transition name='team'>
-				<div v-if='showTeam' :style='{background:"#fff url("+imgs.shareBg+") no-repeat center top",backgroundSize:"cover"}' class="zmiti-team-main-ui lt-full" @touchend='showTeam = false'>
-					<div class="zmiti-team-main">
-						<h1>
-							<div>制作团队</div>
-						</h1>
-						<section><span>出品人：</span><span>陈凯星</span><span>冯瑛冰</span></section>
-						<section><span>监制：</span><span>马书平</span></section>	
-						<section><span>策划：</span><span>葛素表</span><span>张洪河</span></section>
-						<section><span>统筹：</span><span>徐蕊</span><span>周年均</span></section>
-						<section><span>创意：</span><span>曹建礼</span></section>
-						<section><span>记者：</span><span>范世辉</span><span>杨世尧</span><span>牟宇</span><span>张润贞</span></section>
-						<section><span>编辑：</span><span>潘红宇</span><span>钱程</span><span>赵丹阳</span><span>路滨琪</span><span style="opacity:0;">徐徐达</span><span>屈萌</span><span>赵逸赫</span><span>乔煜成</span></section>
-						<section><span>制作：</span><span>马发展</span></section>
-						<section><span>技术支持：</span><span>麟腾传媒</span></section>
-						<section  style="margin-top: 30px" class="zmiti-copyright"><span>新华社新媒体中心、新华社摄影部、新华社河北分社联合出品</span></section>
-						<div class="zmiti-back">返回</div>
+		<section ref='zmiti-cache-page' v-if='!createImg' class="lt-full zmiti-share-content" :style="{background: 'url('+imgs.createBg+') no-repeat center center',backgroundSize:'cover'}">
+			<div>
+				<div class="zmiti-text">
+					<img :src="imgs.text" />
+				</div>
+				<div class="zmiti-hand-compare">
+					<div>
+						<img :src="imgs.shareImgBg">
+						<div class="zmiti-other-hand" :style="{background: 'url('+handImg+') no-repeat center center',backgroundSize:backgroundSize}">
+							
+						</div>
+						<div class="zmiti-job">
+							<span>{{job}}</span>的手
+						</div>
+					</div>
+					<div>
+						<img :src="imgs.shareImgBg">
+						<div class="zmiti-myhand" :style="{background: 'url('+uploadImg+') no-repeat center center',backgroundSize:backgroundSize}">
+							
+						</div>
+						<div class="zmiti-upload-hand">
+							<span>{{myhandname}}</span>的手
+						</div>
+					</div>
+					<div class="zmiti-brage">
+						<img :src="imgs.brage">
 					</div>
 				</div>
-			</transition>
+
+				<div class="zmiti-qrcode">
+					<img :src="imgs.qrcode">
+				</div>
+				<div class="zmiti-logo">
+					<img :src="imgs.logo">
+					<span>新华社新媒体中心</span>
+				</div>
+			</div>
+		</section>
+		 
+		 <transition name='team'>
+			<div v-if='showTeam' :style='{background:"#fff url("+imgs.shareBg+") no-repeat center top",backgroundSize:"cover"}' class="zmiti-team-main-ui lt-full" @touchend='showTeam = false'>
+				<div class="zmiti-team-main">
+					<h1>
+						<div>制作团队</div>
+					</h1>
+					<section><span>出品人：</span><span>陈凯星</span><span>冯瑛冰</span></section>
+					<section><span>监制：</span><span>马书平</span></section>	
+					<section><span>策划：</span><span>葛素表</span><span>张洪河</span></section>
+					<section><span>统筹：</span><span>徐蕊</span><span>周年均</span></section>
+					<section><span>创意：</span><span>曹建礼</span></section>
+					<section><span>记者：</span><span>范世辉</span><span>杨世尧</span><span>牟宇</span><span>张润贞</span></section>
+					<section><span>编辑：</span><span>潘红宇</span><span>钱程</span><span>赵丹阳</span><span>路滨琪</span><span style="opacity:0;">徐徐达</span><span>屈萌</span><span>赵逸赫</span><span>乔煜成</span></section>
+					<section><span>制作：</span><span>马发展</span></section>
+					<section><span>技术支持：</span><span>麟腾传媒</span></section>
+					<section  style="margin-top: 30px" class="zmiti-copyright"><span>新华社新媒体中心、新华社摄影部、新华社河北分社联合出品</span></section>
+					<div class="zmiti-back">返回</div>
+				</div>
+			</div>
+		</transition>
 		<transition name='btn'>
 			<div class="zmiti-share-btns" :class='{"restart":src}' v-if='showBtns'>
-		 		<div v-if='!src' v-tap='[rechoose]'>重新选择</div>
-		 		<div v-if='!src' v-tap='[share]'>分享</div>
-				<div v-if='src' v-tap='[restart]'>我也要合影</div>
-		 		<section v-if='!src' class="zmiti-team" v-tap='[showTeamPage]'>
+		 		<div v-if='!src' v-tap='[rechoose]' class="zmiti-share-btn">
+		 			<img :src='imgs.btnBg' />
+		 			<span>
+		 				重新上传
+		 			</span>
+		 		</div>
+		 		<div v-if='!src' v-tap='[share]'  class="zmiti-share-btn">
+		 			<img :src='imgs.btnBg' />
+		 			<span>分享</span>
+		 		</div>
+		 		<section v-if='!src && false' class="zmiti-team" v-tap='[showTeamPage]'>
 		 			制作团队
 		 		</section>
 		 	</div>
 		</transition>
-
-
-
 		<div class="zmiti-mask" v-if='showMasks' @touchstart='showMasks = false'>
 			<img @touchstart='imgStart($event)' :src="imgs.arrow">
 		</div>
@@ -65,7 +93,7 @@
 
 <script>
 	import './index.css';
-	import {imgs,mainImgList} from '../lib/assets.js';
+	import {imgs} from '../lib/assets.js';
 	import zmitiUtil from '../lib/util';
 	import $ from 'jquery';
 	import '../lib/html2canvas';
@@ -84,12 +112,13 @@
 				showBtns:false,
 				viewH:document.documentElement.clientHeight,
 				showMasks:false,
-				transX:0,
 				showTeam:false,
-				date:'',
-				transY:0,
-				mainImgList,
+				backgroundSize:'contain',
 				createImg:'',
+				uploadImg:'',
+				handImg:'',
+				job:'',
+				myhandname:'网友'
 
 			}
 		},
@@ -97,8 +126,6 @@
 		},
 		
 		methods:{
-
-
 			restart(){
 				window.location.href = window.location.href.split('?')[0]; 
 			},
@@ -162,16 +189,16 @@
 								data:"photo"
 							})
 
-		             		setTimeout(()=>{
+		             		/*setTimeout(()=>{
 		             			//document.title=s.viewH+','+(s.$refs['createimgs'].offsetHeight*1.2)
 								s.$refs['createimgs'].style.WebkitTransform = 'scale('+s.viewH/(s.$refs['createimgs'].offsetHeight*1.2)+')'
 
 								///s.deleteImg(s.headimg);
 
 								
-							},100);
+							},100);*/
 
-
+							return;
 
 							$.ajax({
 					          url:window.protocol+'//'+window.server+'.zmiti.com/v2/share/base64_image/',
@@ -239,9 +266,10 @@
 			var {obserable} = this;
 
 
-			setTimeout(()=>{
-				//this.html2img();
-			},1000)
+
+			/*setTimeout(()=>{
+				this.html2img();
+			},1000)*/
 
 			
 
@@ -249,20 +277,42 @@
 
 				this.show = data.show;
 
-				this.index = data.index;
+				 
 				this.headimg = data.headimg;
 				if(data.createImg){
 					this.src = data.createImg;
 					this.createImg = data.createImg;
 
 
-					zmitiUtil.wxConfig('我是第'+data.num+'位为雄安过周岁者',window.desc);
+					//zmitiUtil.wxConfig('我是第'+data.num+'位为雄安过周岁者',window.desc);
 				}
 				if(data.headimg){
 					this.html2img();
-					
 				}
-			})
+			});
+
+			obserable.on('fillShare',(data)=>{
+				this.show = true;
+				this.handImg = data.handImg;
+				this.uploadImg = data.uploadImg;
+				this.job = data.job;
+				this.myhandname = data.myhandname;
+				this.backgroundSize = 'cover';
+
+				var url = window.location.href.split('#')[0];
+
+				url = zmitiUtil.changeURLPar(url,'src',this.uploadImg);
+				url = zmitiUtil.changeURLPar(url,'myhandname',encodeURI(this.myhandname));
+
+				zmitiUtil.wxConfig(document.title,window.desc,url);
+
+				setTimeout(()=>{
+					this.html2img();
+				},200)
+
+			});
+
+			
 
 			/*obserable.trigger({
 				type:'toggleShare',

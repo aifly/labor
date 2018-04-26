@@ -11,10 +11,25 @@
 	hand4:'./assets/images/hand4.jpg',
 	myhand:'./assets/images/myhand.jpg',
 	subtitle:'./assets/images/subtitle.png',
-	upload:'./assets/images/upload.jpg'
+	upload:'./assets/images/upload.jpg',
+	shareBg:'./assets/images/share-bg.jpg',
+	shareImgBg:'./assets/images/share-img-bg.png',
+	text:'./assets/images/text.png',
+	brage:'./assets/images/brage.png',
+	qrcode:'./assets/images/qrcode.png',
+	createBg:'./assets/images/createimg-bg.jpg',
+	btnBg:'./assets/images/btn-bg.png'
 
 }
 
+var handType = [
+	'摸鼠标',
+	'洗碗',
+	'换尿片',
+	'铲屎官',
+	'扣金龙抓',
+	'搬砖'
+]
 
 var handList = [
 	{

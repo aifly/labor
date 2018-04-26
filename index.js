@@ -1,8 +1,8 @@
 import Vue from "vue";
 import './components/css/index.css';
-import Index from './components/index/index';
 import Main from './components/main/index';
 import Music from './components/music/index';
+import Share from './components/share/index';
 import Obserable from './components/lib/obserable';
 import {
 	imgs
@@ -54,8 +54,8 @@ new Vue({
 		<Index  v-if='show && !isShare'  :obserable='obserable'></Index>
 	*/
 	template: `<div>
-		<Main  v-if='show && !isShare'  :obserable='obserable'></Main>
-		
+		<Main  v-if='show'  :obserable='obserable'></Main>
+		<Share v-if='show ' :obserable='obserable'></Share>
 		<div  v-if='!loaded' :style='{background:"#158ae4"}' class='zmiti-loading lt-full'>
 			<div class='zmiti-loading-ui'>
 				 <a href="#">
@@ -102,7 +102,7 @@ new Vue({
 				url: window.protocol + '//api.zmiti.com/v2/custom/update_pvnum/',
 				type: 'post',
 				data: {
-					customid: 51
+					customid: 54
 				}
 			}).done((data) => {
 				if (data.getret === 0) {
@@ -115,36 +115,32 @@ new Vue({
 		}
 	},
 	components: {
-		Index,
+		
 		Music,
 		Main,
+		Share
 	},
 	mounted() {
 
 
 		var src = (zmitiUtil.getQueryString('src'));
-		var num = (zmitiUtil.getQueryString('num'));
+		var myhandname = decodeURI(zmitiUtil.getQueryString('myhandname'));
 
-		this.isShare = src && !isNaN(num);
+		this.isShare = src && myhandname;
 
 		this.src = src;
 
 		this.updatePv();
 
 		if(this.isShare){
-			setTimeout(()=>{
-				obserable.trigger({
-					type:'toggleShare',
-					data:{
-						show:true,
-						createImg:src,
-						num
-					}
-				})
-				//
-			},1000)
+			arr.push(src);
+			handList[0].className= 'right'
+			handList.unshift({
+				url:src,
+				name:myhandname,
+				className: "active transition"
+			});
 		}
-
 
 		this.loading(arr, (s) => {
 			this.width = s * 100 | 0;

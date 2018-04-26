@@ -7,17 +7,6 @@ $color: #fffb88;
 .zmiti-main-main-ui{
 	//
 
-	&.lt-full{
-		width: $viewW;
-	}
-
-	.lt-full{
-		width: $viewW;
-	}	
-
-
-
-
 	.zmiti-bg-mask{
 		z-index: 20;
 		background:rgba(47,7,8,.56);
@@ -27,7 +16,7 @@ $color: #fffb88;
 
 	.zmiti-bg{
 		&.main-enter-active, &.main-leave-active {
-			@include transition(.4s);
+			@include transition(1s);
 		}
 
 		&.main-enter, &.main-leave-to {
@@ -35,6 +24,14 @@ $color: #fffb88;
 		}
 	}
 	.zmiti-hand-page{
+
+		&.hand-enter-active, &.hand-leave-active {
+			@include transition(1s .5s);
+		}
+
+		&.hand-enter, &.hand-leave-to {
+			opacity:0;
+		}
 		@include transformOrigin(center 90%);
 		&.left {
 			opacity: 1;
@@ -105,18 +102,28 @@ $color: #fffb88;
 	.zmiti-img-desc{
 		@include pos(a);
 		bottom:5%;
-		left: 5%;
-		height: 80px;
-		width: 90%;
+		left: 15%;
+		height: 40px;
+		width: 70%;
+		color:#912426;
+		line-height: 40px;
+		text-align: center;
 		box-sizing:box-sizing;
 
 		textarea{
-			border:none;
+			color:#912426;
 			outline: none;
-			width: 100%;
+			width: 50%;
 			height: 100%;
 			background: transparent;
-			font-size: 40px;
+			font-size: 30px;
+			vertical-align: bottom;
+			border:none;
+			border-bottom: 1px solid #912426;
+			border-radius: 0;
+
+			resize:none;
+
 		}
 	}
 
@@ -138,7 +145,7 @@ $color: #fffb88;
 	.zmiti-hand-img{
 		@include pos(a);
 		z-index: 10;
-		height: 84vh;
+		height: 84%;
 		@include transform(translate3d(-50%,0,0));
 		left: 50%;
 		top: 7vh;
@@ -201,11 +208,13 @@ $color: #fffb88;
 		}
 		.zmiti-name{
 			@include pos(a);
-			bottom: 5%;
+			bottom: 40px;
 			right: 5%;
 			color:#912426;
-			font-size: 76px;
-			font-weight: bold;
+			font-weight: bold;	
+			span{
+				font-size: 76px;
+			}
 		}
 	}
 
@@ -222,6 +231,7 @@ $color: #fffb88;
 
 		left: 50%;
 		margin-left: -70px;
+		z-index: 205;
 	}
 
 	.zmiti-year{

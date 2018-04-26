@@ -50,14 +50,11 @@
     box-sizing: border-box;
     position: absolute;
     z-index: 10;
-    height: 80/.84vh;
     -webkit-transform: scale(0.82);
     transform: scale(0.82);
     -webkit-transform-origin: center 10vh;
     transform-origin: center 10vh; }
     .zmiti-share-main-ui .zmiti-createimg img {
-      -webkit-transform: scale(0.95, 0.97);
-      transform: scale(0.95, 0.97);
       width: auto;
       height: 100%; }
     .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-enter-active, .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-leave-active {
@@ -66,14 +63,23 @@
     .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-enter, .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-leave-to {
       -webkit-transform: scale(1);
       transform: scale(1); }
+    .zmiti-share-main-ui .zmiti-createimg:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      box-shadow: 0 0 0 6px #ca141f, 10px 10px 0 6px #b2aea8;
+      z-index: -1; }
     .zmiti-share-main-ui .zmiti-createimg:after {
       content: '长按保存图片';
       position: absolute;
-      color: #ca141f;
+      color: #333;
       font-size: .4rem;
-      bottom: .4rem;
+      bottom: 0rem;
       width: .4rem;
-      left: 98%; }
+      left: 102%; }
   .zmiti-share-main-ui .zmiti-share-main {
     height: 100%;
     top: 0;
@@ -150,6 +156,64 @@
           border-radius: 1.3rem; }
         .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-headimg img {
           border-radius: 1.3rem; }
+  .zmiti-share-main-ui .zmiti-share-content > div {
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical;
+    height: 96%;
+    margin-top: 2%; }
+  .zmiti-share-main-ui .zmiti-share-content .zmiti-text {
+    width: 90%; }
+  .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: horizontal;
+    position: relative;
+    width: 90%;
+    margin: 70px auto; }
+    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare > div {
+      width: 50%;
+      position: relative; }
+    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-brage {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0);
+      width: 200px;
+      bottom: 20px; }
+    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-job, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand {
+      position: absolute;
+      bottom: 30px;
+      left: 3%;
+      color: #912426; }
+      .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-job span, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand span {
+        font-weight: bold; }
+    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand {
+      right: 6%;
+      left: auto; }
+    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-other-hand, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-myhand {
+      position: absolute;
+      width: 90%;
+      left: 3%;
+      top: 5%;
+      height: 80%; }
+  .zmiti-share-main-ui .zmiti-share-content .zmiti-qrcode {
+    width: 200px;
+    margin: 0 auto; }
+  .zmiti-share-main-ui .zmiti-share-content .zmiti-logo {
+    position: absolute;
+    width: 200px;
+    font-size: 22px;
+    text-align: center;
+    right: 0;
+    bottom: 120px; }
+    .zmiti-share-main-ui .zmiti-share-content .zmiti-logo img {
+      margin: 0 auto;
+      width: 50px;
+      display: block; }
   .zmiti-share-main-ui .zmiti-share-btns {
     height: 2.1rem;
     color: #fff;
@@ -164,6 +228,20 @@
     -webkit-box-orient: horizontal;
     -webkit-box-pack: justify;
     -webkit-box-align: start; }
+    .zmiti-share-main-ui .zmiti-share-btns .zmiti-share-btn {
+      position: relative;
+      border: 1px solid red;
+      width: 230px;
+      background: transparent;
+      border: none; }
+      .zmiti-share-main-ui .zmiti-share-btns .zmiti-share-btn span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        line-height: 2.2; }
     .zmiti-share-main-ui .zmiti-share-btns.restart {
       -webkit-box-pack: center; }
     .zmiti-share-main-ui .zmiti-share-btns .zmiti-team {
