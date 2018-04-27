@@ -33,7 +33,7 @@
 						</div>
 
 						<div class="zmiti-img-desc" v-if='hand.type === "upload"'>
-							<textarea @input='input' v-model='desc' :style="textareaStyle" placeholder="请输入照片描述"></textarea>
+							<textarea @input='input' v-model='desc' :style="textareaStyle" placeholder="请输入描述(6个字以内)"></textarea>
 							的手
 						</div>
 
@@ -197,6 +197,17 @@
 	 						s.uploadImg = data.getfileurl[0].datainfourl;
 	 						s.handList[s.handList.length-1].url = data.getfileurl[0].datainfourl;
 	 						s.backgroundSize = 'cover'
+
+	 						/*s.headimgurl = window.headimgurl||s.imgs.logo;
+
+	 						var url = window.location.href.split('#')[0];
+
+							url = zmitiUtil.changeURLPar(url,'src',s.uploadImg);
+							url = zmitiUtil.changeURLPar(url,'myhandname',encodeURI(s.desc));
+							url = zmitiUtil.changeURLPar(url,'headimgurl',s.headimgurl);
+							window.shareImg = s.uploadImg;
+							
+							zmitiUtil.wxConfig((window.nickname||"新华社网友") + '展示了他' + s.desc+'的手','劳动最光荣，邀你来展示劳动者的手',url);*/
 				        }else{
 				        	setTimeout(()=>{
 				        		s.detectionError = '';

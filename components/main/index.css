@@ -108,9 +108,9 @@
   .zmiti-main-main-ui .zmiti-img-desc {
     position: absolute;
     bottom: 5%;
-    left: 15%;
+    left: 0%;
     height: 40px;
-    width: 70%;
+    width: 100%;
     color: #912426;
     line-height: 40px;
     text-align: center;
@@ -118,10 +118,10 @@
     .zmiti-main-main-ui .zmiti-img-desc textarea {
       color: #912426;
       outline: none;
-      width: 50%;
+      width: 80%;
       height: 100%;
       background: transparent;
-      font-size: 30px;
+      font-size: 28px;
       vertical-align: bottom;
       border: none;
       border-bottom: 1px solid #912426;
@@ -131,14 +131,14 @@
     position: absolute;
     width: 80px;
     z-index: 300;
-    left: 40%;
+    left: 50%;
     top: 50%;
     -webkit-animation: move 1s infinite linear;
     animation: move 1s infinite linear; }
 @-webkit-keyframes move {
   to {
-    -webkit-transform: translate3d(100px, 0, 0);
-    transform: translate3d(100px, 0, 0); } }
+    -webkit-transform: translate3d(-100px, 0, 0);
+    transform: translate3d(-100px, 0, 0); } }
   .zmiti-main-main-ui .zmiti-hand-img {
     position: absolute;
     z-index: 10;
