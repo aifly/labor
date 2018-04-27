@@ -109,8 +109,13 @@ new Vue({
 				if (data.getret === 0) {
 					this.pv = data.totalpv;
 					this.randomPv = data.randtotalpv;
+					if(this.isShare){
+						window.shareImg = this.src;
+						zmitiUtil.wxConfig((window.nickname||"新华社网友") + '展示了TA' +this.myhandname+'的手','劳动最光荣，一起来展示劳动的手');
+					}else{
 
-					zmitiUtil.wxConfig(document.title,window.desc);
+						zmitiUtil.wxConfig(document.title,window.desc);
+					}
 				}
 			});
 		}
@@ -129,6 +134,8 @@ new Vue({
 		var myhandname = decodeURI(zmitiUtil.getQueryString('myhandname'));
 		var headimgurl = decodeURI(zmitiUtil.getQueryString('headimgurl'));
 
+		this.myhandname = myhandname;
+
 		this.isShare = src && myhandname && headimgurl;
 
 		this.src = src;
@@ -145,6 +152,8 @@ new Vue({
 				name:myhandname,
 				className: "right1"
 			});
+
+			
 		}
 
 		this.loading(arr, (s) => {

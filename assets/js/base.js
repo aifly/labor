@@ -8,7 +8,7 @@
 	bg:'./assets/images/bg.jpg',
 	myhand:'./assets/images/myhand.jpg',
 	subtitle:'./assets/images/subtitle1.png',
-	upload:'./assets/images/upload.jpg',
+	upload:'./assets/images/upload1.jpg',
 	shareBg:'./assets/images/share-bg.jpg',
 	shareImgBg:'./assets/images/share-img-bg.png',
 	text:'./assets/images/text.png',

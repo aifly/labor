@@ -281,8 +281,8 @@ $color:#ca141f;
  	.zmiti-share-btns{
 		height: 1.6rem;
 		color:#ffe3a6;
-		width: 66%;
-		left: 17%;
+		width: 80%;
+		left: 10%;
 		bottom: 0rem;
 
 		text-align: center;
@@ -293,8 +293,7 @@ $color:#ca141f;
 
 		.zmiti-share-btn{
 			@include pos(r);
-			border:1px solid red;
-			width: 230px;
+			width: 280px;
 
 			span{
 				@include pos(a);
@@ -303,7 +302,7 @@ $color:#ca141f;
 				left: 0;
 				top: 0;
 				z-index: 10;
-				line-height: 2.2;
+				line-height: 2.4;
 
 			}
 			background: transparent;

@@ -58,25 +58,25 @@
 
 	var _componentsMainIndex2 = _interopRequireDefault(_componentsMainIndex);
 
-	var _componentsMusicIndex = __webpack_require__(22);
+	var _componentsMusicIndex = __webpack_require__(21);
 
 	var _componentsMusicIndex2 = _interopRequireDefault(_componentsMusicIndex);
 
-	var _componentsShareIndex = __webpack_require__(25);
+	var _componentsShareIndex = __webpack_require__(24);
 
 	var _componentsShareIndex2 = _interopRequireDefault(_componentsShareIndex);
 
-	var _componentsIndexIndex = __webpack_require__(35);
+	var _componentsIndexIndex = __webpack_require__(31);
 
 	var _componentsIndexIndex2 = _interopRequireDefault(_componentsIndexIndex);
 
-	var _componentsLibObserable = __webpack_require__(32);
+	var _componentsLibObserable = __webpack_require__(37);
 
 	var _componentsLibObserable2 = _interopRequireDefault(_componentsLibObserable);
 
 	var _componentsLibAssets = __webpack_require__(13);
 
-	var _componentsLibUtilJs = __webpack_require__(29);
+	var _componentsLibUtilJs = __webpack_require__(28);
 
 	var _componentsLibUtilJs2 = _interopRequireDefault(_componentsLibUtilJs);
 
@@ -84,9 +84,9 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	__webpack_require__(33);
+	__webpack_require__(38);
 
-	var _vueJsTap = __webpack_require__(34);
+	var _vueJsTap = __webpack_require__(39);
 
 	var _vueJsTap2 = _interopRequireDefault(_vueJsTap);
 
@@ -168,8 +168,13 @@
 					if (data.getret === 0) {
 						_this.pv = data.totalpv;
 						_this.randomPv = data.randtotalpv;
+						if (_this.isShare) {
+							window.shareImg = _this.src;
+							_componentsLibUtilJs2['default'].wxConfig((window.nickname || "新华社网友") + '展示了TA' + _this.myhandname + '的手', '劳动最光荣，一起来展示劳动的手');
+						} else {
 
-						_componentsLibUtilJs2['default'].wxConfig(document.title, window.desc);
+							_componentsLibUtilJs2['default'].wxConfig(document.title, window.desc);
+						}
 					}
 				});
 			}
@@ -187,6 +192,8 @@
 			var src = _componentsLibUtilJs2['default'].getQueryString('src');
 			var myhandname = decodeURI(_componentsLibUtilJs2['default'].getQueryString('myhandname'));
 			var headimgurl = decodeURI(_componentsLibUtilJs2['default'].getQueryString('headimgurl'));
+
+			this.myhandname = myhandname;
 
 			this.isShare = src && myhandname && headimgurl;
 
@@ -11984,7 +11991,7 @@
 
 	var __vue_script__, __vue_template__
 	__vue_script__ = __webpack_require__(10)
-	__vue_template__ = __webpack_require__(21)
+	__vue_template__ = __webpack_require__(20)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -11992,7 +11999,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "F:\\xuchang2018\\project\\labor\\components\\main\\index.vue"
+	  var id = "E:\\project\\labor\\components\\main\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -12086,7 +12093,7 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _toastToast = __webpack_require__(16);
+	var _toastToast = __webpack_require__(15);
 
 	var _toastToast2 = _interopRequireDefault(_toastToast);
 
@@ -22286,14 +22293,13 @@
 
 
 /***/ }),
-/* 15 */,
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(17)
-	__vue_script__ = __webpack_require__(19)
-	__vue_template__ = __webpack_require__(20)
+	__webpack_require__(16)
+	__vue_script__ = __webpack_require__(18)
+	__vue_template__ = __webpack_require__(19)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -22301,7 +22307,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "F:\\xuchang2018\\project\\labor\\components\\toast\\toast.vue"
+	  var id = "E:\\project\\labor\\components\\toast\\toast.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -22310,13 +22316,13 @@
 	})()}
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(18);
+	var content = __webpack_require__(17);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(8)(content, {});
@@ -22325,8 +22331,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-08c2e7a4&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue", function() {
-				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-08c2e7a4&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue");
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-7a79eb78&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-7a79eb78&file=toast.vue!../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./toast.vue");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -22336,7 +22342,7 @@
 	}
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(7)();
@@ -22350,7 +22356,7 @@
 
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	// <template>
@@ -22393,24 +22399,24 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports) {
 
 	module.exports = "\r\n\t<div class=\"zmiti-toast-main-ui\" :class='{\"hide\":msg === \"\"}'>\r\n\t\t{{msg}}\r\n\t</div>\r\n";
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports) {
 
 	module.exports = "\r\n\t<transition name='main'>\r\n\t\t<div class=\"lt-full zmiti-main-main-ui \" :class=\"{'show':show}\" ref='page' v-swipeleft='swipeLeft' v-swipeup='swipeLeft' v-swiperight='swipeRight' v-swipedown='swipeRight'>\r\n\t\t\t<div v-if='currentIndex>-1' class=\"zmiti-hand-bg\" :style=\"bgStyle\">\r\n\t\t\t</div>\r\n\t\t\t\r\n\t\t\t<div class=\"zmiti-bg-mask lt-full\"></div>\r\n\t\t\t\r\n\t\t\t<transition-group name='hand'>\r\n\t\t\t\t<div v-if='currentIndex>-1' :key='hand.url' v-for='hand in handList' class=\"lt-full zmiti-hand-page\" :class=\"hand.className\">\r\n\t\t\t\t\r\n\t\t\t\t\t<div class='zmiti-hand-img' :style=\"{background: 'url('+imgs.imgBg+') no-repeat center center',backgroundSize:'cover'}\">\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.imgBg\" class=\"zmiti-img-bg\">\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<div class=\"zmiti-hand\" :style=\"{background:'url('+(hand.url)+') no-repeat center center',backgroundSize:backgroundSize}\">\r\n\t\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"hand.url\" :style=\"{opacity:(hand.type === 'upload' && uploadImg && uploadState !== 1 )?0:1}\" v-if='hand.type !== \"insert\"' >\r\n\t\t\t\t\t\t\t<input  accept=\"image/*\" @change='upload' v-if='hand.type === \"upload\" && !uploadImg' type=\"file\" class=\"lt-full\" ref='file' name=\"\">\r\n\t\t\t\t\t\t\t<div v-if='hand.type === \"upload\" &&  uploadState === 1' class=\"lt-full zmiti-upload-status\">\r\n\t\t\t\t\t\t\t\t<div class=\"load-3\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"k-line2 k-line12-1\"></div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"k-line2 k-line12-2\"></div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"k-line2 k-line12-3\"></div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"k-line2 k-line12-4\"></div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"k-line2 k-line12-5\"></div>\r\n\t\t\t\t\t\t\t\t\t<div class=\"k-line2 k-line12-6\"></div>\r\n\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t正在上传，请稍候...\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t<div class=\"zmiti-subtitle\" v-if='hand.type !== \"upload\"'>\r\n\t\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.subtitle\">\r\n\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t<div class=\"zmiti-img-desc\" v-if='hand.type === \"upload\"'>\r\n\t\t\t\t\t\t\t<textarea @input='input' v-model='desc' :style=\"textareaStyle\" placeholder=\"请输入描述(6个字以内)\"></textarea>\r\n\t\t\t\t\t\t\t的手\r\n\t\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t\t<div v-if='hand.type !== \"upload\"'  class=\"zmiti-name\">\r\n\t\t\t\t\t\t\t<img v-if='hand.img' :src=\"hand.img\">\r\n\t\t\t\t\t\t\t<span>{{hand.name}}</span>的手</div>\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</transition-group>\r\n\r\n\t\t\t<div class=\"zmiti-year\" v-if='currentIndex>-1 && handList[currentIndex].type !== \"upload\"'>\r\n\t\t\t\t劳动节快乐\r\n\t\t\t</div>\r\n\t\t\t<div v-tap='[entryShare]' class=\"zmiti-ok\" v-if='currentIndex >-1 && handList[currentIndex].type === \"upload\"'>\r\n\t\t\t\t<img :src=\"imgs.btnBg\">\r\n\t\t\t\t<span>确定</span>\r\n\t\t\t</div>\r\n\r\n\r\n\t\t\t<div class=\"zmiti-info\" v-if='showInfo'>\r\n\t\t\t\t<img :src=\"imgs.hand\">\r\n\t\t\t</div>\r\n\r\n\t\t\t<Toast :msg='toastMsg'></Toast>\r\n\t\t</div>\r\n\t</transition>\r\n";
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(23)
-	__vue_template__ = __webpack_require__(24)
+	__vue_script__ = __webpack_require__(22)
+	__vue_template__ = __webpack_require__(23)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -22418,7 +22424,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "F:\\xuchang2018\\project\\labor\\components\\music\\index.vue"
+	  var id = "E:\\project\\labor\\components\\music\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -22427,7 +22433,7 @@
 	})()}
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// <template>
@@ -22591,18 +22597,18 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	module.exports = "\r\n\t<div  class=\"lt-full zmiti-music-main-ui\" :style='{height:\"10vh\"}'>\r\n\t\t<audio ref='music' v-for='audio in audios' :src='audio.src' :autoplay=\"audio.autoplay\" :loop=\"audio.loop\"></audio>\r\n\r\n\t\t<div  @click='toggleMusic' class='zmiti-play' :class='{\"rotate\":rotate}' :style=\"playStyle\">\r\n\t\t\t<img  :src='imgs.play'/>\r\n\t\t</div>\r\n\t</div>\r\n";
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(26)
-	__vue_template__ = __webpack_require__(31)
+	__vue_script__ = __webpack_require__(25)
+	__vue_template__ = __webpack_require__(30)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -22610,7 +22616,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "F:\\xuchang2018\\project\\labor\\components\\share\\index.vue"
+	  var id = "E:\\project\\labor\\components\\share\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -22619,7 +22625,7 @@
 	})()}
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// <template>
@@ -22726,11 +22732,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	__webpack_require__(27);
+	__webpack_require__(26);
 
 	var _libAssetsJs = __webpack_require__(13);
 
-	var _libUtil = __webpack_require__(29);
+	var _libUtil = __webpack_require__(28);
 
 	var _libUtil2 = _interopRequireDefault(_libUtil);
 
@@ -22738,7 +22744,7 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	__webpack_require__(30);
+	__webpack_require__(29);
 
 	exports['default'] = {
 		props: ['obserable', 'pv'],
@@ -22936,7 +22942,7 @@
 				url = _libUtil2['default'].changeURLPar(url, 'myhandname', encodeURI(_this2.myhandname));
 				url = _libUtil2['default'].changeURLPar(url, 'headimgurl', _this2.headimgurl);
 				window.shareImg = _this2.uploadImg;
-				_libUtil2['default'].wxConfig((window.nickname || "新华社网友") + '展示了他' + _this2.myhandname + '的手', '劳动最光荣，邀你来展示劳动者的手', url);
+				_libUtil2['default'].wxConfig((window.nickname || "新华社网友") + '展示了TA' + _this2.myhandname + '的手', '劳动最光荣，一起来展示劳动的手', url);
 
 				setTimeout(function () {
 					_this2.html2img();
@@ -22958,13 +22964,13 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(28);
+	var content = __webpack_require__(27);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(8)(content, {});
@@ -22984,7 +22990,7 @@
 	}
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(7)();
@@ -22992,13 +22998,13 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\r\n.lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0; }\r\n\r\n.zmiti-text-overflow {\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  word-break: break-all;\r\n  text-overflow: ellipsis;\r\n  -webkit-text-overflow: ellipsis; }\r\n\r\n.zmiti-play {\r\n  width: .8rem;\r\n  height: .8rem;\r\n  border-radius: 50%;\r\n  position: fixed;\r\n  z-index: 1000;\r\n  right: .5rem;\r\n  top: .5rem; }\r\n  .zmiti-play.rotate {\r\n    -webkit-animation: rotate 5s linear infinite;\r\n    animation: rotate 5s linear infinite; }\r\n\r\n@-webkit-keyframes rotate {\r\n  to {\r\n    -webkit-transform: rotate(360deg);\r\n    transform: rotate(360deg); } }\r\n.zmiti-share-main-ui {\r\n  overflow: hidden;\r\n  width: 10rem;\r\n  left: 50% !important;\r\n  margin-left: -375px;\r\n  background: #4081dd;\r\n  opacity: 0;\r\n  z-index: -1; }\r\n  .zmiti-share-main-ui.show {\r\n    opacity: 1;\r\n    z-index: 1010; }\r\n  .zmiti-share-main-ui .zmiti-share-bg {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0; }\r\n  .zmiti-share-main-ui .zmiti-createimg {\r\n    box-sizing: border-box;\r\n    position: absolute;\r\n    z-index: 10;\r\n    -webkit-transform: scale(0.82);\r\n    transform: scale(0.82);\r\n    -webkit-transform-origin: center 20vh;\r\n    transform-origin: center 20vh; }\r\n    .zmiti-share-main-ui .zmiti-createimg img {\r\n      width: auto;\r\n      height: 100%; }\r\n    .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-enter-active, .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-leave-active {\r\n      -webkit-transition: 0.4s;\r\n      transition: 0.4s; }\r\n    .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-enter, .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-leave-to {\r\n      -webkit-transform: scale(1);\r\n      transform: scale(1); }\r\n    .zmiti-share-main-ui .zmiti-createimg:before {\r\n      content: \"\";\r\n      position: absolute;\r\n      width: 100%;\r\n      height: 100%;\r\n      left: 0;\r\n      top: 0;\r\n      box-shadow: 6px 6px 0 6px #b2aea8;\r\n      z-index: -1; }\r\n    .zmiti-share-main-ui .zmiti-createimg:after {\r\n      content: '\\957F\\6309\\4FDD\\5B58\\56FE\\7247';\r\n      position: absolute;\r\n      color: #333;\r\n      font-size: .4rem;\r\n      bottom: 0rem;\r\n      width: .4rem;\r\n      left: 102%; }\r\n  .zmiti-share-main-ui .zmiti-share-main {\r\n    height: 100%;\r\n    top: 0;\r\n    box-sizing: border-box;\r\n    width: 100%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical; }\r\n    .zmiti-share-main-ui .zmiti-share-main > div {\r\n      width: 10rem;\r\n      -webkit-transform: scale(0.9);\r\n      transform: scale(0.9); }\r\n      .zmiti-share-main-ui .zmiti-share-main > div:nth-of-type(1) {\r\n        -webkit-box-flex: 1;\r\n        position: relative;\r\n        border-radius: 10px; }\r\n        .zmiti-share-main-ui .zmiti-share-main > div:nth-of-type(1):before {\r\n          content: '';\r\n          width: 100%;\r\n          height: 100%;\r\n          left: 0;\r\n          top: 0;\r\n          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);\r\n          border-radius: 10px; }\r\n    .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C {\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: vertical; }\r\n      .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div {\r\n        width: 100%; }\r\n        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(1) {\r\n          margin-top: -20px;\r\n          margin-left: -4px;\r\n          -webkit-box-flex: 1;\r\n          border-bottom-left-radius: 220px; }\r\n        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(2) {\r\n          position: relative;\r\n          height: 2.5rem; }\r\n          .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(2) .zmiti-qrcode-img {\r\n            width: 2.3rem;\r\n            position: absolute;\r\n            right: 0;\r\n            bottom: 0; }\r\n          .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(2) .zmiti-liulian {\r\n            position: absolute;\r\n            width: 7rem;\r\n            bottom: .5rem;\r\n            left: 0rem; }\r\n      .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-date {\r\n        color: #9d9d9d;\r\n        margin-top: 10px;\r\n        position: absolute;\r\n        bottom: 0;\r\n        left: 4.5rem; }\r\n      .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-headimg {\r\n        width: 2.6rem;\r\n        height: 2.6rem;\r\n        background: #fff;\r\n        border-radius: 1.3rem;\r\n        position: absolute;\r\n        top: -1.8571428571rem;\r\n        padding: 10px;\r\n        box-sizing: border-box; }\r\n        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-headimg:before {\r\n          content: '';\r\n          position: absolute;\r\n          left: 0;\r\n          top: 0;\r\n          width: 100%;\r\n          height: 100%;\r\n          box-shadow: 2px 0 3px rgba(0, 0, 0, 0.5);\r\n          border-radius: 1.3rem; }\r\n        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-headimg img {\r\n          border-radius: 1.3rem; }\r\n  .zmiti-share-main-ui .zmiti-share-content > div {\r\n    width: 100%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical;\r\n    height: 96%;\r\n    margin-top: 2%; }\r\n  .zmiti-share-main-ui .zmiti-share-content .zmiti-text {\r\n    width: 90%; }\r\n  .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare {\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal;\r\n    position: relative;\r\n    width: 90%;\r\n    margin: 50px auto; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare > div {\r\n      width: 50%;\r\n      position: relative; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-brage {\r\n      position: absolute;\r\n      left: 50%;\r\n      -webkit-transform: translate3d(-50%, 0, 0);\r\n      transform: translate3d(-50%, 0, 0);\r\n      width: 150px;\r\n      bottom: 40px; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-job, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand {\r\n      position: absolute;\r\n      bottom: 30px;\r\n      left: 3%;\r\n      color: #912426;\r\n      font-size: 26px; }\r\n      .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-job span, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand span {\r\n        font-weight: bold; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand {\r\n      right: 6%;\r\n      left: auto; }\r\n      .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand img {\r\n        width: 40px;\r\n        vertical-align: bottom;\r\n        border-radius: 50%; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-other-hand, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-myhand {\r\n      position: absolute;\r\n      width: 90%;\r\n      left: 3%;\r\n      top: 5%;\r\n      height: 80%; }\r\n  .zmiti-share-main-ui .zmiti-share-content .zmiti-qrcode {\r\n    width: 90%;\r\n    position: relative;\r\n    top: 60px; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-qrcode img {\r\n      width: 150px;\r\n      display: block; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-qrcode span {\r\n      font-size: 21px;\r\n      position: relative; }\r\n  .zmiti-share-main-ui .zmiti-share-content .zmiti-logo {\r\n    position: absolute;\r\n    width: 200px;\r\n    font-size: 22px;\r\n    text-align: center;\r\n    right: 0;\r\n    bottom: 40px;\r\n    color: #fff; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-logo img {\r\n      margin: 0 auto 20px;\r\n      width: 50px;\r\n      display: block; }\r\n  .zmiti-share-main-ui .zmiti-share-btns {\r\n    height: 1.6rem;\r\n    color: #ffe3a6;\r\n    width: 66%;\r\n    left: 17%;\r\n    bottom: 0rem;\r\n    text-align: center;\r\n    position: absolute;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-pack: justify;\r\n    -webkit-box-align: start; }\r\n    .zmiti-share-main-ui .zmiti-share-btns .zmiti-share-btn {\r\n      position: relative;\r\n      border: 1px solid red;\r\n      width: 230px;\r\n      background: transparent;\r\n      border: none; }\r\n      .zmiti-share-main-ui .zmiti-share-btns .zmiti-share-btn span {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        left: 0;\r\n        top: 0;\r\n        z-index: 10;\r\n        line-height: 2.2; }\r\n    .zmiti-share-main-ui .zmiti-share-btns.restart {\r\n      -webkit-box-pack: center; }\r\n    .zmiti-share-main-ui .zmiti-share-btns .zmiti-team {\r\n      position: absolute;\r\n      text-decoration: underline;\r\n      left: 50%;\r\n      -webkit-transform: translate(-50%, 0);\r\n      transform: translate(-50%, 0);\r\n      bottom: .3rem;\r\n      color: #ca141f; }\r\n    .zmiti-share-main-ui .zmiti-share-btns > div {\r\n      background: #ca141f;\r\n      line-height: .9rem;\r\n      border-radius: 6px;\r\n      width: 2.5rem;\r\n      font-size: .45rem; }\r\n    .zmiti-share-main-ui .zmiti-share-btns.btn-enter-active, .zmiti-share-main-ui .zmiti-share-btns.btn-leave-active {\r\n      -webkit-transition: 0.4s;\r\n      transition: 0.4s; }\r\n    .zmiti-share-main-ui .zmiti-share-btns.btn-enter, .zmiti-share-main-ui .zmiti-share-btns.btn-leave-to {\r\n      opacity: 0; }\r\n  .zmiti-share-main-ui .zmiti-team-main-ui {\r\n    z-index: 1010;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical;\r\n    color: #fffae0;\r\n    opacity: 1;\r\n    -webkit-transform: translate3d(0, 0, 10px);\r\n    transform: translate3d(0, 0, 10px); }\r\n    .zmiti-share-main-ui .zmiti-team-main-ui.team-enter-active, .zmiti-share-main-ui .zmiti-team-main-ui.team-leave-active {\r\n      -webkit-transition: 0.5s;\r\n      transition: 0.5s; }\r\n    .zmiti-share-main-ui .zmiti-team-main-ui.team-enter, .zmiti-share-main-ui .zmiti-team-main-ui.team-leave-to {\r\n      opacity: 0; }\r\n    .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main {\r\n      color: #ca141f;\r\n      margin-top: 1rem; }\r\n      .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > h1 {\r\n        display: -webkit-box;\r\n        -webkit-box-align: center;\r\n        -webkit-box-pack: center;\r\n        -webkit-box-orient: horizontal;\r\n        width: 9.7rem;\r\n        font-weight: normal;\r\n        font-size: .6rem;\r\n        height: 2rem; }\r\n        .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > h1 > div:nth-of-type(1), .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > h1 > div:nth-of-type(3) {\r\n          margin-top: 40px; }\r\n      .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section {\r\n        font-size: .4rem;\r\n        width: 6.8rem;\r\n        margin: 0 auto;\r\n        line-height: .7rem; }\r\n        .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section.zmiti-copyright {\r\n          position: relative; }\r\n          .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section.zmiti-copyright:before {\r\n            content: '';\r\n            position: absolute;\r\n            width: 100%;\r\n            height: 1px;\r\n            background: rgba(0, 0, 0, 0.2);\r\n            left: 0;\r\n            top: 0;\r\n            display: none; }\r\n        .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section span {\r\n          padding: 0 6px; }\r\n      .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main .zmiti-back {\r\n        background: #fff;\r\n        color: #e05944;\r\n        width: 2rem;\r\n        height: .7rem;\r\n        line-height: .7rem;\r\n        text-align: center;\r\n        border-radius: 8px;\r\n        margin: .5rem auto;\r\n        font-size: .4rem;\r\n        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); }\r\n\r\n@media all and (min-width: 750px) and (min-height: 1440px) {\r\n  .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare {\r\n    margin: 150px auto; } }\r\n\r\n/*# sourceMappingURL=index.css.map */\r\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\r\n.lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0; }\r\n\r\n.zmiti-text-overflow {\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n  word-break: break-all;\r\n  text-overflow: ellipsis;\r\n  -webkit-text-overflow: ellipsis; }\r\n\r\n.zmiti-play {\r\n  width: .8rem;\r\n  height: .8rem;\r\n  border-radius: 50%;\r\n  position: fixed;\r\n  z-index: 1000;\r\n  right: .5rem;\r\n  top: .5rem; }\r\n  .zmiti-play.rotate {\r\n    -webkit-animation: rotate 5s linear infinite;\r\n    animation: rotate 5s linear infinite; }\r\n\r\n@-webkit-keyframes rotate {\r\n  to {\r\n    -webkit-transform: rotate(360deg);\r\n    transform: rotate(360deg); } }\r\n.zmiti-share-main-ui {\r\n  overflow: hidden;\r\n  width: 10rem;\r\n  left: 50% !important;\r\n  margin-left: -375px;\r\n  background: #4081dd;\r\n  opacity: 0;\r\n  z-index: -1; }\r\n  .zmiti-share-main-ui.show {\r\n    opacity: 1;\r\n    z-index: 1010; }\r\n  .zmiti-share-main-ui .zmiti-share-bg {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    left: 0;\r\n    top: 0; }\r\n  .zmiti-share-main-ui .zmiti-createimg {\r\n    box-sizing: border-box;\r\n    position: absolute;\r\n    z-index: 10;\r\n    -webkit-transform: scale(0.82);\r\n    transform: scale(0.82);\r\n    -webkit-transform-origin: center 20vh;\r\n    transform-origin: center 20vh; }\r\n    .zmiti-share-main-ui .zmiti-createimg img {\r\n      width: auto;\r\n      height: 100%; }\r\n    .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-enter-active, .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-leave-active {\r\n      -webkit-transition: 0.4s;\r\n      transition: 0.4s; }\r\n    .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-enter, .zmiti-share-main-ui .zmiti-createimg.zmiti-scale-leave-to {\r\n      -webkit-transform: scale(1);\r\n      transform: scale(1); }\r\n    .zmiti-share-main-ui .zmiti-createimg:before {\r\n      content: \"\";\r\n      position: absolute;\r\n      width: 100%;\r\n      height: 100%;\r\n      left: 0;\r\n      top: 0;\r\n      box-shadow: 6px 6px 0 6px #b2aea8;\r\n      z-index: -1; }\r\n    .zmiti-share-main-ui .zmiti-createimg:after {\r\n      content: '\\957F\\6309\\4FDD\\5B58\\56FE\\7247';\r\n      position: absolute;\r\n      color: #333;\r\n      font-size: .4rem;\r\n      bottom: 0rem;\r\n      width: .4rem;\r\n      left: 102%; }\r\n  .zmiti-share-main-ui .zmiti-share-main {\r\n    height: 100%;\r\n    top: 0;\r\n    box-sizing: border-box;\r\n    width: 100%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical; }\r\n    .zmiti-share-main-ui .zmiti-share-main > div {\r\n      width: 10rem;\r\n      -webkit-transform: scale(0.9);\r\n      transform: scale(0.9); }\r\n      .zmiti-share-main-ui .zmiti-share-main > div:nth-of-type(1) {\r\n        -webkit-box-flex: 1;\r\n        position: relative;\r\n        border-radius: 10px; }\r\n        .zmiti-share-main-ui .zmiti-share-main > div:nth-of-type(1):before {\r\n          content: '';\r\n          width: 100%;\r\n          height: 100%;\r\n          left: 0;\r\n          top: 0;\r\n          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);\r\n          border-radius: 10px; }\r\n    .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C {\r\n      display: -webkit-box;\r\n      -webkit-box-align: center;\r\n      -webkit-box-pack: center;\r\n      -webkit-box-orient: vertical; }\r\n      .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div {\r\n        width: 100%; }\r\n        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(1) {\r\n          margin-top: -20px;\r\n          margin-left: -4px;\r\n          -webkit-box-flex: 1;\r\n          border-bottom-left-radius: 220px; }\r\n        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(2) {\r\n          position: relative;\r\n          height: 2.5rem; }\r\n          .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(2) .zmiti-qrcode-img {\r\n            width: 2.3rem;\r\n            position: absolute;\r\n            right: 0;\r\n            bottom: 0; }\r\n          .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C > div:nth-of-type(2) .zmiti-liulian {\r\n            position: absolute;\r\n            width: 7rem;\r\n            bottom: .5rem;\r\n            left: 0rem; }\r\n      .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-date {\r\n        color: #9d9d9d;\r\n        margin-top: 10px;\r\n        position: absolute;\r\n        bottom: 0;\r\n        left: 4.5rem; }\r\n      .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-headimg {\r\n        width: 2.6rem;\r\n        height: 2.6rem;\r\n        background: #fff;\r\n        border-radius: 1.3rem;\r\n        position: absolute;\r\n        top: -1.85714rem;\r\n        padding: 10px;\r\n        box-sizing: border-box; }\r\n        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-headimg:before {\r\n          content: '';\r\n          position: absolute;\r\n          left: 0;\r\n          top: 0;\r\n          width: 100%;\r\n          height: 100%;\r\n          box-shadow: 2px 0 3px rgba(0, 0, 0, 0.5);\r\n          border-radius: 1.3rem; }\r\n        .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-headimg img {\r\n          border-radius: 1.3rem; }\r\n  .zmiti-share-main-ui .zmiti-share-content > div {\r\n    width: 100%;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical;\r\n    height: 96%;\r\n    margin-top: 2%; }\r\n  .zmiti-share-main-ui .zmiti-share-content .zmiti-text {\r\n    width: 90%; }\r\n  .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare {\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal;\r\n    position: relative;\r\n    width: 90%;\r\n    margin: 50px auto; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare > div {\r\n      width: 50%;\r\n      position: relative; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-brage {\r\n      position: absolute;\r\n      left: 50%;\r\n      -webkit-transform: translate3d(-50%, 0, 0);\r\n      transform: translate3d(-50%, 0, 0);\r\n      width: 150px;\r\n      bottom: 40px; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-job, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand {\r\n      position: absolute;\r\n      bottom: 30px;\r\n      left: 3%;\r\n      color: #912426;\r\n      font-size: 26px; }\r\n      .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-job span, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand span {\r\n        font-weight: bold; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand {\r\n      right: 6%;\r\n      left: auto; }\r\n      .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand img {\r\n        width: 40px;\r\n        vertical-align: bottom;\r\n        border-radius: 50%; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-other-hand, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-myhand {\r\n      position: absolute;\r\n      width: 90%;\r\n      left: 3%;\r\n      top: 5%;\r\n      height: 80%; }\r\n  .zmiti-share-main-ui .zmiti-share-content .zmiti-qrcode {\r\n    width: 90%;\r\n    position: relative;\r\n    top: 60px; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-qrcode img {\r\n      width: 150px;\r\n      display: block; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-qrcode span {\r\n      font-size: 21px;\r\n      position: relative; }\r\n  .zmiti-share-main-ui .zmiti-share-content .zmiti-logo {\r\n    position: absolute;\r\n    width: 200px;\r\n    font-size: 22px;\r\n    text-align: center;\r\n    right: 0;\r\n    bottom: 40px;\r\n    color: #fff; }\r\n    .zmiti-share-main-ui .zmiti-share-content .zmiti-logo img {\r\n      margin: 0 auto 20px;\r\n      width: 50px;\r\n      display: block; }\r\n  .zmiti-share-main-ui .zmiti-share-btns {\r\n    height: 1.6rem;\r\n    color: #ffe3a6;\r\n    width: 80%;\r\n    left: 10%;\r\n    bottom: 0rem;\r\n    text-align: center;\r\n    position: absolute;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-pack: justify;\r\n    -webkit-box-align: start; }\r\n    .zmiti-share-main-ui .zmiti-share-btns .zmiti-share-btn {\r\n      position: relative;\r\n      width: 280px;\r\n      background: transparent;\r\n      border: none; }\r\n      .zmiti-share-main-ui .zmiti-share-btns .zmiti-share-btn span {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        left: 0;\r\n        top: 0;\r\n        z-index: 10;\r\n        line-height: 2.4; }\r\n    .zmiti-share-main-ui .zmiti-share-btns.restart {\r\n      -webkit-box-pack: center; }\r\n    .zmiti-share-main-ui .zmiti-share-btns .zmiti-team {\r\n      position: absolute;\r\n      text-decoration: underline;\r\n      left: 50%;\r\n      -webkit-transform: translate(-50%, 0);\r\n      transform: translate(-50%, 0);\r\n      bottom: .3rem;\r\n      color: #ca141f; }\r\n    .zmiti-share-main-ui .zmiti-share-btns > div {\r\n      background: #ca141f;\r\n      line-height: .9rem;\r\n      border-radius: 6px;\r\n      width: 2.5rem;\r\n      font-size: .45rem; }\r\n    .zmiti-share-main-ui .zmiti-share-btns.btn-enter-active, .zmiti-share-main-ui .zmiti-share-btns.btn-leave-active {\r\n      -webkit-transition: 0.4s;\r\n      transition: 0.4s; }\r\n    .zmiti-share-main-ui .zmiti-share-btns.btn-enter, .zmiti-share-main-ui .zmiti-share-btns.btn-leave-to {\r\n      opacity: 0; }\r\n  .zmiti-share-main-ui .zmiti-team-main-ui {\r\n    z-index: 1010;\r\n    display: -webkit-box;\r\n    -webkit-box-align: center;\r\n    -webkit-box-pack: center;\r\n    -webkit-box-orient: vertical;\r\n    color: #fffae0;\r\n    opacity: 1;\r\n    -webkit-transform: translate3d(0, 0, 10px);\r\n    transform: translate3d(0, 0, 10px); }\r\n    .zmiti-share-main-ui .zmiti-team-main-ui.team-enter-active, .zmiti-share-main-ui .zmiti-team-main-ui.team-leave-active {\r\n      -webkit-transition: 0.5s;\r\n      transition: 0.5s; }\r\n    .zmiti-share-main-ui .zmiti-team-main-ui.team-enter, .zmiti-share-main-ui .zmiti-team-main-ui.team-leave-to {\r\n      opacity: 0; }\r\n    .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main {\r\n      color: #ca141f;\r\n      margin-top: 1rem; }\r\n      .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > h1 {\r\n        display: -webkit-box;\r\n        -webkit-box-align: center;\r\n        -webkit-box-pack: center;\r\n        -webkit-box-orient: horizontal;\r\n        width: 9.7rem;\r\n        font-weight: normal;\r\n        font-size: .6rem;\r\n        height: 2rem; }\r\n        .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > h1 > div:nth-of-type(1), .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > h1 > div:nth-of-type(3) {\r\n          margin-top: 40px; }\r\n      .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section {\r\n        font-size: .4rem;\r\n        width: 6.8rem;\r\n        margin: 0 auto;\r\n        line-height: .7rem; }\r\n        .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section.zmiti-copyright {\r\n          position: relative; }\r\n          .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section.zmiti-copyright:before {\r\n            content: '';\r\n            position: absolute;\r\n            width: 100%;\r\n            height: 1px;\r\n            background: rgba(0, 0, 0, 0.2);\r\n            left: 0;\r\n            top: 0;\r\n            display: none; }\r\n        .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main > section span {\r\n          padding: 0 6px; }\r\n      .zmiti-share-main-ui .zmiti-team-main-ui .zmiti-team-main .zmiti-back {\r\n        background: #fff;\r\n        color: #e05944;\r\n        width: 2rem;\r\n        height: .7rem;\r\n        line-height: .7rem;\r\n        text-align: center;\r\n        border-radius: 8px;\r\n        margin: .5rem auto;\r\n        font-size: .4rem;\r\n        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); }\r\n\r\n@media all and (min-width: 750px) and (min-height: 1440px) {\r\n  .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare {\r\n    margin: 150px auto; } }\r\n\r\n/*# sourceMappingURL=index.css.map */\r\n", ""]);
 
 	// exports
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23217,7 +23223,7 @@
 	module.exports = exports["default"];
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var require;var require;/* WEBPACK VAR INJECTION */(function(global) {/*
@@ -23433,293 +23439,18 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports) {
 
 	module.exports = "\r\n\t<div  class=\"lt-full zmiti-share-main-ui \" :style=\"{background:'url('+imgs.shareBg+') no-repeat center top',backgroundSize:'cover'}\"   :class=\"{'show':show}\">\r\n\t\t \r\n\t\t<transition name=\"zmiti-scale\" @after-enter=\"afterEnter\">\r\n\t\t    <div ref='createimgs'  class=\"zmiti-createimg\"  v-if='createImg'>\r\n\t\t\t\t<img :src=\"createImg\" alt=\"\">\r\n\t\t\t</div>\r\n\t\t</transition>\r\n\t\t\r\n\r\n\t\t<section ref='zmiti-cache-page' v-if='!createImg' class=\"lt-full zmiti-share-content\" :style=\"{background: 'url('+imgs.bg+') no-repeat center bottom',backgroundSize:'cover'}\">\r\n\t\t\t<div>\r\n\t\t\t\t<div class=\"zmiti-text\">\r\n\t\t\t\t\t<img :src=\"imgs.text\" />\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"zmiti-hand-compare\">\r\n\t\t\t\t\t<div>\r\n\t\t\t\t\t\t<img :src=\"imgs.shareImgBg\">\r\n\t\t\t\t\t\t<div class=\"zmiti-other-hand\" :style=\"{background: 'url('+handImg+') no-repeat center center',backgroundSize:backgroundSize}\">\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"zmiti-job\">\r\n\t\t\t\t\t\t\t<span>{{job}}</span>的手\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div>\r\n\t\t\t\t\t\t<img :src=\"imgs.shareImgBg\">\r\n\t\t\t\t\t\t<div class=\"zmiti-myhand\" :style=\"{background: 'url('+uploadImg+') no-repeat center center',backgroundSize:backgroundSize}\">\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"zmiti-upload-hand\">\r\n\t\t\t\t\t\t\t<img :src='headimgurl' />\r\n\t\t\t\t\t\t\t<span>{{myhandname}}</span>的手\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"zmiti-brage\">\r\n\t\t\t\t\t\t<img :src=\"imgs.brage\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\r\n\t\t\t\t<div class=\"zmiti-qrcode\">\r\n\t\t\t\t\t<img :src=\"imgs.qrcode\">\r\n\t\t\t\t\t<span>长按识别二维码</span>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"zmiti-logo\">\r\n\t\t\t\t\t<img :src=\"imgs.logo\">\r\n\t\t\t\t\t<span>新华社新媒体中心</span>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</section>\r\n\t\t \r\n\t\t <transition name='team'>\r\n\t\t\t<div v-if='showTeam' :style='{background:\"#fff url(\"+imgs.shareBg+\") no-repeat center top\",backgroundSize:\"cover\"}' class=\"zmiti-team-main-ui lt-full\" @touchend='showTeam = false'>\r\n\t\t\t\t<div class=\"zmiti-team-main\">\r\n\t\t\t\t\t<h1>\r\n\t\t\t\t\t\t<div>制作团队</div>\r\n\t\t\t\t\t</h1>\r\n\t\t\t\t\t<section><span>出品人：</span><span>陈凯星</span><span>冯瑛冰</span></section>\r\n\t\t\t\t\t<section><span>监制：</span><span>马书平</span></section>\t\r\n\t\t\t\t\t<section><span>策划：</span><span>葛素表</span><span>张洪河</span></section>\r\n\t\t\t\t\t<section><span>统筹：</span><span>徐蕊</span><span>周年均</span></section>\r\n\t\t\t\t\t<section><span>创意：</span><span>曹建礼</span></section>\r\n\t\t\t\t\t<section><span>记者：</span><span>范世辉</span><span>杨世尧</span><span>牟宇</span><span>张润贞</span></section>\r\n\t\t\t\t\t<section><span>编辑：</span><span>潘红宇</span><span>钱程</span><span>赵丹阳</span><span>路滨琪</span><span style=\"opacity:0;\">徐徐达</span><span>屈萌</span><span>赵逸赫</span><span>乔煜成</span></section>\r\n\t\t\t\t\t<section><span>制作：</span><span>马发展</span></section>\r\n\t\t\t\t\t<section><span>技术支持：</span><span>麟腾传媒</span></section>\r\n\t\t\t\t\t<section  style=\"margin-top: 30px\" class=\"zmiti-copyright\"><span>新华社新媒体中心、新华社摄影部、新华社河北分社联合出品</span></section>\r\n\t\t\t\t\t<div class=\"zmiti-back\">返回</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</transition>\r\n\t\t<transition name='btn'>\r\n\t\t\t<div class=\"zmiti-share-btns\" :class='{\"restart\":src}' v-if='showBtns'>\r\n\t\t \t\t<div v-if='!src' v-tap='[rechoose]' class=\"zmiti-share-btn\">\r\n\t\t \t\t\t<img :src='imgs.btnBg' />\r\n\t\t \t\t\t<span>\r\n\t\t \t\t\t\t重新上传\r\n\t\t \t\t\t</span>\r\n\t\t \t\t</div>\r\n\t\t \t\t<div v-if='!src' v-tap='[share]'  class=\"zmiti-share-btn\">\r\n\t\t \t\t\t<img :src='imgs.btnBg' />\r\n\t\t \t\t\t<span>请小伙伴围观</span>\r\n\t\t \t\t</div>\r\n\t\t \t\t<section v-if='!src && false' class=\"zmiti-team\" v-tap='[showTeamPage]'>\r\n\t\t \t\t\t制作团队\r\n\t\t \t\t</section>\r\n\t\t \t</div>\r\n\t\t</transition>\r\n\t\t<div class=\"zmiti-mask\" v-if='showMasks' @touchstart='showMasks = false'>\r\n\t\t\t<img @touchstart='imgStart($event)' :src=\"imgs.arrow\">\r\n\t\t</div>\r\n\t\t\r\n\t</div>\r\n";
 
 /***/ }),
-/* 32 */
-/***/ (function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var Obserable = (function () {
-		function Obserable() {
-			_classCallCheck(this, Obserable);
-
-			this.handlers = {};
-		}
-
-		_createClass(Obserable, [{
-			key: "on",
-			value: function on(type, handler) {
-
-				this.handlers[type] = this.handlers[type] || [];
-
-				this.off(type);
-				this.handlers[type].push({ handler: handler, type: type });
-			}
-		}, {
-			key: "off",
-			value: function off(type) {
-				var _this = this;
-
-				this.handlers[type] && this.handlers[type].forEach(function (item, i) {
-					if (item.type === type) {
-						_this.handlers[type].splice(i, 1);
-					};
-				});
-			}
-		}, {
-			key: "trigger",
-			value: function trigger(event) {
-
-				if (!event.target) {
-					event.target = this;
-				}
-
-				if (this.handlers[event.type] instanceof Array) {
-					var handlers = this.handlers[event.type]; //检出被观察者注册的观察者
-					for (var i = 0, len = handlers.length; i < len; i++) {
-						return handlers[i].handler(event.data); //回调函数执行，也就是观察者更新自己
-					}
-				}
-			}
-		}]);
-
-		return Obserable;
-	})();
-
-	exports["default"] = Obserable;
-	module.exports = exports["default"];
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	var _vue = __webpack_require__(1);
-
-	var _vue2 = _interopRequireDefault(_vue);
-
-	function vueTouch(el, binding, type) {
-	    var _this = this;
-	    this.obj = el;
-	    this.binding = binding;
-	    this.touchType = type;
-	    this.vueTouches = {
-	        x: 0,
-	        y: 0
-	    };
-	    this.vueMoves = true;
-	    this.vueLeave = true;
-	    this.longTouch = true;
-	    this.vueCallBack = typeof binding.value == "object" ? binding.value.fn : binding.value;
-	    this.obj.addEventListener("touchstart", function (e) {
-	        _this.start(e);
-	    }, false);
-	    this.obj.addEventListener("touchend", function (e) {
-	        _this.end(e);
-	    }, false);
-	    this.obj.addEventListener("touchmove", function (e) {
-	        _this.move(e);
-	    }, false);
-	};
-	vueTouch.prototype = {
-	    start: function start(e) {
-	        this.vueMoves = true;
-	        this.vueLeave = true;
-	        this.longTouch = true;
-	        this.vueTouches = {
-	            x: e.changedTouches[0].pageX,
-	            y: e.changedTouches[0].pageY
-	        };
-	        this.time = setTimeout((function () {
-	            if (this.vueLeave && this.vueMoves) {
-	                this.touchType == "longtap" && this.vueCallBack(this.binding.value, e);
-	                this.longTouch = false;
-	            };
-	        }).bind(this), 1000);
-	    },
-	    end: function end(e) {
-	        var disX = e.changedTouches[0].pageX - this.vueTouches.x;
-	        var disY = e.changedTouches[0].pageY - this.vueTouches.y;
-	        clearTimeout(this.time);
-	        if (Math.abs(disX) > 10 || Math.abs(disY) > 100) {
-	            this.touchType == "swipe" && this.vueCallBack(this.binding.value, e);
-	            if (Math.abs(disX) > Math.abs(disY)) {
-	                if (disX > 10) {
-	                    this.touchType == "swiperight" && this.vueCallBack(this.binding.value, e);
-	                };
-	                if (disX < -10) {
-	                    this.touchType == "swipeleft" && this.vueCallBack(this.binding.value, e);
-	                };
-	            } else {
-	                if (disY > 10) {
-	                    this.touchType == "swipedown" && this.vueCallBack(this.binding.value, e);
-	                };
-	                if (disY < -10) {
-	                    this.touchType == "swipeup" && this.vueCallBack(this.binding.value, e);
-	                };
-	            };
-	        } else {
-	            if (this.longTouch && this.vueMoves) {
-	                this.touchType == "tap" && this.vueCallBack(this.binding.value, e);
-	                this.vueLeave = false;
-	            };
-	        };
-	    },
-	    move: function move(e) {
-	        this.vueMoves = false;
-	    }
-	};
-
-	_vue2["default"].directive("swipe", {
-	    bind: function bind(el, binding) {
-	        new vueTouch(el, binding, "swipe");
-	    }
-	});
-	_vue2["default"].directive("swipeleft", {
-	    bind: function bind(el, binding) {
-	        new vueTouch(el, binding, "swipeleft");
-	    }
-	});
-	_vue2["default"].directive("swiperight", {
-	    bind: function bind(el, binding) {
-	        new vueTouch(el, binding, "swiperight");
-	    }
-	});
-	_vue2["default"].directive("swipedown", {
-	    bind: function bind(el, binding) {
-	        new vueTouch(el, binding, "swipedown");
-	    }
-	});
-	_vue2["default"].directive("swipeup", {
-	    bind: function bind(el, binding) {
-	        new vueTouch(el, binding, "swipeup");
-	    }
-	});
-	_vue2["default"].directive("longtap", {
-	    bind: function bind(el, binding) {
-	        new vueTouch(el, binding, "longtap");
-	    }
-	});
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * vue-tap.js v1.2.3
-	 * By 雾空 https://github.com/weijhfly/vue-tap
-	 * Time:2018/1/18
-	*/
-	;(function (factory) {
-		if (true) {
-			!(__WEBPACK_AMD_DEFINE_RESULT__ = function(){return factory;}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		}else if (typeof exports == "object") {
-			module.exports = factory;
-		}else{
-			Vue.use(factory);
-		}
-	}({
-	   master:{
-			bind: function (el, binding) {
-				var isTouch = "ontouchend" in document;
-				
-				el.execFun = function (binding) {
-					return function(e){
-						var data = binding.value;
-						
-						if(!data){
-							if(el.href && !binding.modifiers.prevent){
-								return window.location = el.href;
-								
-							}else if(el.tagName == 'INPUT' || el.tagName == 'TEXTAREA'){
-								return el.focus();
-							}else{
-								return;
-							}
-						}
-						var	getEl = data.indexOf('$el'),
-							getEvent = data.indexOf('$event');
-
-						getEl != -1 && (data[getEl] = el);
-						getEvent != -1 && (data[getEvent] = e);
-						
-						data[0].apply(this, data.slice(1));
-					}
-				};
-				el.exec = el.execFun(binding);
-				el.tapInfo = {};
-				
-				if (isTouch) {
-					//touchstart
-					el.addEventListener('touchstart', function (e) {
-						var t = e.touches[0];
-						
-						el.tapInfo.startX = t.pageX;
-						el.tapInfo.startY = t.pageY;
-						el.tapInfo.sTime = + new Date;
-						binding.modifiers.stop && (e.stopPropagation());
-						binding.modifiers.prevent && (e.preventDefault());
-					});
-					//touchend
-					el.addEventListener('touchend', function (e) {
-						var t = e.changedTouches[0];
-						
-						el.tapInfo.endX = t.pageX;
-						el.tapInfo.endY = t.pageY;
-						if((+ new Date) - el.tapInfo.sTime<300){
-							if(Math.abs(el.tapInfo.endX - el.tapInfo.startX) + Math.abs(el.tapInfo.endY - el.tapInfo.startY)<20){
-								binding.modifiers.stop && (e.stopPropagation());
-								e.preventDefault();
-								el.exec(e);
-							}
-						}
-					});
-				}else {
-					//click
-					el.addEventListener('click', function (e) {
-					  binding.modifiers.stop && (e.stopPropagation());
-					  binding.modifiers.prevent && (e.preventDefault());
-					  el.exec(e);
-					});
-
-				}
-			},
-			componentUpdated : function(el,binding) {
-				el.exec = el.execFun(binding);
-			},
-			unbind: function (el) {
-				el.execFun = el.exec = el.tapInfo = null;
-			}
-	   },
-	   install:function(Vue){
-		   Vue.directive('tap', this.master);
-	   }
-	}))
-
-
-/***/ }),
-/* 35 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(36)
-	__vue_template__ = __webpack_require__(39)
+	__vue_script__ = __webpack_require__(32)
+	__vue_template__ = __webpack_require__(36)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
@@ -23727,7 +23458,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "F:\\xuchang2018\\project\\labor\\components\\index\\index.vue"
+	  var id = "E:\\project\\labor\\components\\index\\index.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -23736,7 +23467,7 @@
 	})()}
 
 /***/ }),
-/* 36 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// <template>
@@ -23775,11 +23506,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	__webpack_require__(37);
+	__webpack_require__(33);
 
 	var _libAssetsJs = __webpack_require__(13);
 
-	var _libUtil = __webpack_require__(29);
+	var _libUtil = __webpack_require__(28);
 
 	var _libUtil2 = _interopRequireDefault(_libUtil);
 
@@ -23787,7 +23518,7 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _point = __webpack_require__(40);
+	var _point = __webpack_require__(35);
 
 	var _point2 = _interopRequireDefault(_point);
 
@@ -23909,13 +23640,13 @@
 	module.exports = exports['default'];
 
 /***/ }),
-/* 37 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(38);
+	var content = __webpack_require__(34);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(8)(content, {});
@@ -23935,7 +23666,7 @@
 	}
 
 /***/ }),
-/* 38 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(7)();
@@ -23949,13 +23680,7 @@
 
 
 /***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-	module.exports = "\r\n\t<div v-tap='[entry]'  class=\"lt-full zmiti-index-main-ui \"  :style=\"{zIndex:zIndex}\" :class=\"{'show':show}\">\r\n\t\t\r\n\t\t<transition name='main'>\r\n\t\t\t<div class=\"zmiti-bg\">\r\n\t\t\t\t<div class=\"zmiti-hand-bg\" :style=\"{background: 'url('+imgs.bg+') no-repeat center bottom',backgroundSize:'cover'}\">\r\n\t\t\t\t\t\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class='zmiti-hand-img'  :style=\"{background: 'url('+imgs.imgBg+') no-repeat center center',backgroundSize:'cover'}\">\r\n\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.imgBg\" class=\"zmiti-img-bg\" >\r\n\t\t\t\t\t<canvas ref='canvas' :width='pointW' :height='pointH'></canvas>\r\n\t\t\t\t\t<div class=\"zmiti-hand\">\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.myhand\" @load='load'>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<div class='zmiti-title'>\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.title\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"zmiti-start\" >\r\n\t\t\t\t\t\t<img :src=\"imgs.guangrong\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</transition>\r\n\t</div>\r\n";
-
-/***/ }),
-/* 40 */
+/* 35 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -24025,6 +23750,287 @@
 
 	exports["default"] = Point;
 	module.exports = exports["default"];
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+
+	module.exports = "\r\n\t<div v-tap='[entry]'  class=\"lt-full zmiti-index-main-ui \"  :style=\"{zIndex:zIndex}\" :class=\"{'show':show}\">\r\n\t\t\r\n\t\t<transition name='main'>\r\n\t\t\t<div class=\"zmiti-bg\">\r\n\t\t\t\t<div class=\"zmiti-hand-bg\" :style=\"{background: 'url('+imgs.bg+') no-repeat center bottom',backgroundSize:'cover'}\">\r\n\t\t\t\t\t\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class='zmiti-hand-img'  :style=\"{background: 'url('+imgs.imgBg+') no-repeat center center',backgroundSize:'cover'}\">\r\n\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.imgBg\" class=\"zmiti-img-bg\" >\r\n\t\t\t\t\t<canvas ref='canvas' :width='pointW' :height='pointH'></canvas>\r\n\t\t\t\t\t<div class=\"zmiti-hand\">\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.myhand\" @load='load'>\r\n\t\t\t\t\t</div>\r\n\r\n\t\t\t\t\t<div class='zmiti-title'>\r\n\t\t\t\t\t\t<img @touchstart='imgStart' :src=\"imgs.title\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"zmiti-start\" >\r\n\t\t\t\t\t\t<img :src=\"imgs.guangrong\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</transition>\r\n\t</div>\r\n";
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Obserable = (function () {
+		function Obserable() {
+			_classCallCheck(this, Obserable);
+
+			this.handlers = {};
+		}
+
+		_createClass(Obserable, [{
+			key: "on",
+			value: function on(type, handler) {
+
+				this.handlers[type] = this.handlers[type] || [];
+
+				this.off(type);
+				this.handlers[type].push({ handler: handler, type: type });
+			}
+		}, {
+			key: "off",
+			value: function off(type) {
+				var _this = this;
+
+				this.handlers[type] && this.handlers[type].forEach(function (item, i) {
+					if (item.type === type) {
+						_this.handlers[type].splice(i, 1);
+					};
+				});
+			}
+		}, {
+			key: "trigger",
+			value: function trigger(event) {
+
+				if (!event.target) {
+					event.target = this;
+				}
+
+				if (this.handlers[event.type] instanceof Array) {
+					var handlers = this.handlers[event.type]; //检出被观察者注册的观察者
+					for (var i = 0, len = handlers.length; i < len; i++) {
+						return handlers[i].handler(event.data); //回调函数执行，也就是观察者更新自己
+					}
+				}
+			}
+		}]);
+
+		return Obserable;
+	})();
+
+	exports["default"] = Obserable;
+	module.exports = exports["default"];
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	var _vue = __webpack_require__(1);
+
+	var _vue2 = _interopRequireDefault(_vue);
+
+	function vueTouch(el, binding, type) {
+	    var _this = this;
+	    this.obj = el;
+	    this.binding = binding;
+	    this.touchType = type;
+	    this.vueTouches = {
+	        x: 0,
+	        y: 0
+	    };
+	    this.vueMoves = true;
+	    this.vueLeave = true;
+	    this.longTouch = true;
+	    this.vueCallBack = typeof binding.value == "object" ? binding.value.fn : binding.value;
+	    this.obj.addEventListener("touchstart", function (e) {
+	        _this.start(e);
+	    }, false);
+	    this.obj.addEventListener("touchend", function (e) {
+	        _this.end(e);
+	    }, false);
+	    this.obj.addEventListener("touchmove", function (e) {
+	        _this.move(e);
+	    }, false);
+	};
+	vueTouch.prototype = {
+	    start: function start(e) {
+	        this.vueMoves = true;
+	        this.vueLeave = true;
+	        this.longTouch = true;
+	        this.vueTouches = {
+	            x: e.changedTouches[0].pageX,
+	            y: e.changedTouches[0].pageY
+	        };
+	        this.time = setTimeout((function () {
+	            if (this.vueLeave && this.vueMoves) {
+	                this.touchType == "longtap" && this.vueCallBack(this.binding.value, e);
+	                this.longTouch = false;
+	            };
+	        }).bind(this), 1000);
+	    },
+	    end: function end(e) {
+	        var disX = e.changedTouches[0].pageX - this.vueTouches.x;
+	        var disY = e.changedTouches[0].pageY - this.vueTouches.y;
+	        clearTimeout(this.time);
+	        if (Math.abs(disX) > 10 || Math.abs(disY) > 100) {
+	            this.touchType == "swipe" && this.vueCallBack(this.binding.value, e);
+	            if (Math.abs(disX) > Math.abs(disY)) {
+	                if (disX > 10) {
+	                    this.touchType == "swiperight" && this.vueCallBack(this.binding.value, e);
+	                };
+	                if (disX < -10) {
+	                    this.touchType == "swipeleft" && this.vueCallBack(this.binding.value, e);
+	                };
+	            } else {
+	                if (disY > 10) {
+	                    this.touchType == "swipedown" && this.vueCallBack(this.binding.value, e);
+	                };
+	                if (disY < -10) {
+	                    this.touchType == "swipeup" && this.vueCallBack(this.binding.value, e);
+	                };
+	            };
+	        } else {
+	            if (this.longTouch && this.vueMoves) {
+	                this.touchType == "tap" && this.vueCallBack(this.binding.value, e);
+	                this.vueLeave = false;
+	            };
+	        };
+	    },
+	    move: function move(e) {
+	        this.vueMoves = false;
+	    }
+	};
+
+	_vue2["default"].directive("swipe", {
+	    bind: function bind(el, binding) {
+	        new vueTouch(el, binding, "swipe");
+	    }
+	});
+	_vue2["default"].directive("swipeleft", {
+	    bind: function bind(el, binding) {
+	        new vueTouch(el, binding, "swipeleft");
+	    }
+	});
+	_vue2["default"].directive("swiperight", {
+	    bind: function bind(el, binding) {
+	        new vueTouch(el, binding, "swiperight");
+	    }
+	});
+	_vue2["default"].directive("swipedown", {
+	    bind: function bind(el, binding) {
+	        new vueTouch(el, binding, "swipedown");
+	    }
+	});
+	_vue2["default"].directive("swipeup", {
+	    bind: function bind(el, binding) {
+	        new vueTouch(el, binding, "swipeup");
+	    }
+	});
+	_vue2["default"].directive("longtap", {
+	    bind: function bind(el, binding) {
+	        new vueTouch(el, binding, "longtap");
+	    }
+	});
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	 * vue-tap.js v1.2.3
+	 * By 雾空 https://github.com/weijhfly/vue-tap
+	 * Time:2018/1/18
+	*/
+	;(function (factory) {
+		if (true) {
+			!(__WEBPACK_AMD_DEFINE_RESULT__ = function(){return factory;}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		}else if (typeof exports == "object") {
+			module.exports = factory;
+		}else{
+			Vue.use(factory);
+		}
+	}({
+	   master:{
+			bind: function (el, binding) {
+				var isTouch = "ontouchend" in document;
+				
+				el.execFun = function (binding) {
+					return function(e){
+						var data = binding.value;
+						
+						if(!data){
+							if(el.href && !binding.modifiers.prevent){
+								return window.location = el.href;
+								
+							}else if(el.tagName == 'INPUT' || el.tagName == 'TEXTAREA'){
+								return el.focus();
+							}else{
+								return;
+							}
+						}
+						var	getEl = data.indexOf('$el'),
+							getEvent = data.indexOf('$event');
+
+						getEl != -1 && (data[getEl] = el);
+						getEvent != -1 && (data[getEvent] = e);
+						
+						data[0].apply(this, data.slice(1));
+					}
+				};
+				el.exec = el.execFun(binding);
+				el.tapInfo = {};
+				
+				if (isTouch) {
+					//touchstart
+					el.addEventListener('touchstart', function (e) {
+						var t = e.touches[0];
+						
+						el.tapInfo.startX = t.pageX;
+						el.tapInfo.startY = t.pageY;
+						el.tapInfo.sTime = + new Date;
+						binding.modifiers.stop && (e.stopPropagation());
+						binding.modifiers.prevent && (e.preventDefault());
+					});
+					//touchend
+					el.addEventListener('touchend', function (e) {
+						var t = e.changedTouches[0];
+						
+						el.tapInfo.endX = t.pageX;
+						el.tapInfo.endY = t.pageY;
+						if((+ new Date) - el.tapInfo.sTime<300){
+							if(Math.abs(el.tapInfo.endX - el.tapInfo.startX) + Math.abs(el.tapInfo.endY - el.tapInfo.startY)<20){
+								binding.modifiers.stop && (e.stopPropagation());
+								e.preventDefault();
+								el.exec(e);
+							}
+						}
+					});
+				}else {
+					//click
+					el.addEventListener('click', function (e) {
+					  binding.modifiers.stop && (e.stopPropagation());
+					  binding.modifiers.prevent && (e.preventDefault());
+					  el.exec(e);
+					});
+
+				}
+			},
+			componentUpdated : function(el,binding) {
+				el.exec = el.execFun(binding);
+			},
+			unbind: function (el) {
+				el.execFun = el.exec = el.tapInfo = null;
+			}
+	   },
+	   install:function(Vue){
+		   Vue.directive('tap', this.master);
+	   }
+	}))
+
 
 /***/ })
 /******/ ]);
