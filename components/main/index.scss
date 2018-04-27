@@ -7,9 +7,22 @@ $color: #fffb88;
 .zmiti-main-main-ui{
 	//
 
+
+
 	.zmiti-bg-mask{
-		z-index: 20;
-		background:rgba(47,7,8,.56);
+		z-index: 200;
+
+		&:before{
+			display: none;
+			content: '';
+			@include pos(a);
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			background: rgba(0,0,0,.5);
+			z-index: -1;
+		}
 	}
 	width: $viewW;
 	@include transform3d();
@@ -25,6 +38,8 @@ $color: #fffb88;
 	}
 	.zmiti-hand-page{
 
+		
+
 		&.hand-enter-active, &.hand-leave-active {
 			@include transition(1s .5s);
 		}
@@ -37,7 +52,7 @@ $color: #fffb88;
 			opacity: 1;
 			//@include transform(scale(.7) translate3d(-$viewW/1.5, 0, 0));
 			@include transform(translate3d(-5.66667rem, 0, 0) scale(.3));
-			z-index: 200;
+			z-index: 199;
 
 		}
 
@@ -56,7 +71,7 @@ $color: #fffb88;
 		&.right {
 			opacity: 1;
 			@include transform(translate3d(5.66667rem, 0, 0) scale(.3));
-			z-index: 200;
+			z-index: 199;
 		}
 
 		&.right1 {
@@ -76,9 +91,10 @@ $color: #fffb88;
 		left: 0;
 		top: 0;
 		height: 80vh;
-		-webkit-filter:blur(8px);
-		filter:blur(8px);
+		/* -webkit-filter:blur(8px);
+		filter:blur(8px); */
 		&:before{
+			display: none;
 			content:'';
 			@include pos(a);
 			left: 0;
@@ -90,13 +106,7 @@ $color: #fffb88;
 		}
 	}
 
-	.zmiti-title{
-		@include pos(a);
-		top: 8vh;
-		width: 80%;
-		@include transform(translate3d(-50%,0,0));
-		left: 50%;
-	}
+	
 
 
 	.zmiti-img-desc{
@@ -127,28 +137,31 @@ $color: #fffb88;
 		}
 	}
 
-	.zmiti-start{
-		width: 160px;
-		height: 60px;
-		line-height: 60px;
-		@include br(10px);
-		text-align: center;
-		color:#ffe3a6;
-		background: #912426;
+	.zmiti-info{
 		@include pos(a);
-		bottom: 6%;
-		left: 50%;
-		@include transform(translate3d(-50%,0,0));
 
+		width: 80px;
+		z-index: 300;
+		left: 40%;
+		top: 50%;
+		@include animation(move 1s infinite linear);
 	}
+
+
+	@-webkit-keyframes move{
+		to{
+			@include transform(translate3d(100px,0,0));
+		}
+	}
+
 
 	.zmiti-hand-img{
 		@include pos(a);
 		z-index: 10;
-		height: 84%;
+		height: 90%;
 		@include transform(translate3d(-50%,0,0));
 		left: 50%;
-		top: 7vh;
+		top: 2vh;
 		z-index: 22;
 
 
@@ -172,6 +185,7 @@ $color: #fffb88;
 			width: 90%;
 			left: 5%;
 			top:3%;
+			height: 80%;
 			img{@include br(10px);}
 
 			input{
@@ -204,7 +218,7 @@ $color: #fffb88;
 		.zmiti-subtitle{
 			@include pos(a);
 			left: 5%;
-			bottom: 6%;
+			bottom: 4%;
 		}
 		.zmiti-name{
 			@include pos(a);
@@ -213,7 +227,12 @@ $color: #fffb88;
 			color:#912426;
 			font-weight: bold;	
 			span{
-				font-size: 76px;
+				font-size: 50px;
+			}
+			img{
+				width: 60px;
+				@include br();
+				vertical-align: bottom;
 			}
 		}
 	}
@@ -221,17 +240,27 @@ $color: #fffb88;
 	.zmiti-ok{
 		@include pos(a);
 		height: 60px;
-		width: 140px;
+		width: 240px;
 		@include br(10px);
-		bottom: 20px;
+		bottom: 26px;
 		background:#912426;
 		color:#ffe3a6;
 		text-align: center;
 		line-height: 60px;
 
 		left: 50%;
-		margin-left: -70px;
+		margin-left: -120px;
 		z-index: 205;
+		span{
+			@include pos(a);
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			line-height: 2.2;
+			font-size: 34px;
+		}
+
 	}
 
 	.zmiti-year{
@@ -243,18 +272,18 @@ $color: #fffb88;
 		left: 10%;
 		text-align: center;
 		color:#bebbba;
-		font-size: 48px;
+		font-size: 30px;
 		font-family: Georgia;
 
 		&:before,&:after{
 			content:'';
 			@include pos(a);
 			left: 0;
-			top: 29px;
+			top: 23px;
 			height: 2px;
 			//background: #bebbba;
 			background: -webkit-gradient(linear, left top, right top, from(rgba(190,187,186, .2)), color-stop(0.5, rgba(190,187,186, 1)), to(rgba(190,187,186, .2)));
-			width: 40%;
+			width: 35%;
 		}
 
 		&:after{

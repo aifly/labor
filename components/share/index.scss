@@ -34,7 +34,7 @@ $color:#ca141f;
 		z-index: 10;
 		//left: 50%;
 		@include transform(scale(.82));
-		@include transformOrigin(center 10vh);
+		@include transformOrigin(center 20vh);
 		//border: 1px solid #000;
 
 		img {
@@ -57,7 +57,8 @@ $color:#ca141f;
 			height: 100%;
 			left: 0;
 			top: 0;
-			box-shadow:0 0 0 6px $color, 10px 10px 0 6px rgba(178,174,168,1);
+			//box-shadow:0 0 0 6px $color, 10px 10px 0 6px rgba(178,174,168,1);
+			box-shadow:6px 6px 0 6px rgba(178,174,168,1);
 			z-index: -1;
 		}
 
@@ -195,7 +196,7 @@ $color:#ca141f;
 			@include displayBox(horizontal);
 			@include pos(r);
 			width: 90%;
-			margin: 70px auto;
+			margin: 50px auto;
 			&>div{
 				width: 50%;
 				@include pos(r);
@@ -206,8 +207,8 @@ $color:#ca141f;
 
 				left: 50%;
 				@include transform(translate3d(-50%,0,0));
-				width: 200px;
-				bottom: 20px;
+				width: 150px;
+				bottom: 40px;
 			}
 
 			.zmiti-job,.zmiti-upload-hand{
@@ -215,6 +216,7 @@ $color:#ca141f;
 				bottom: 30px;
 				left: 3%;
 				color:#912426;
+				font-size: 26px;
 				span{
 					font-weight: bold;
 				}
@@ -222,6 +224,11 @@ $color:#ca141f;
 			.zmiti-upload-hand{
 				right: 6%;
 				left: auto;
+				img{
+					width: 40px;
+					vertical-align: bottom;
+					@include br();
+				}
 			}
 
 
@@ -236,8 +243,22 @@ $color:#ca141f;
 
 
 		.zmiti-qrcode{
-			width: 200px;
-			margin: 0 auto;
+			width: 90%;
+			//margin: 0 auto;
+			@include pos(r);
+			top: 60px;
+
+			img{
+				width: 150px;
+				display: block;
+				
+			}
+			span{
+				font-size: 21px;
+				@include pos(r);
+
+			}
+
 		}
 
 		.zmiti-logo{
@@ -246,9 +267,10 @@ $color:#ca141f;
 			font-size: 22px;
 			text-align: center;
 			right: 0;
-			bottom: 120px;
+			bottom: 40px;
+			color:#fff;
 			img{
-				margin: 0 auto;
+				margin: 0 auto 20px;
 				width: 50px;
 				display: block;
 			}
@@ -257,11 +279,12 @@ $color:#ca141f;
  	
 
  	.zmiti-share-btns{
-		height: 2.1rem;
-		color:#fff;
+		height: 1.6rem;
+		color:#ffe3a6;
 		width: 66%;
 		left: 17%;
 		bottom: 0rem;
+
 		text-align: center;
 		@include pos(a);
 		@include displayBox(horizontal);
@@ -400,4 +423,16 @@ $color:#ca141f;
 	}
 
 
+}
+
+
+@media all and (min-width:750px)  and (min-height: 1440px) {
+	
+	.zmiti-share-main-ui{
+		.zmiti-share-content{
+			.zmiti-hand-compare{
+				margin: 150px auto;
+			}
+		}
+	}
 }

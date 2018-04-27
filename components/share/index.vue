@@ -8,7 +8,7 @@
 		</transition>
 		
 
-		<section ref='zmiti-cache-page' v-if='!createImg' class="lt-full zmiti-share-content" :style="{background: 'url('+imgs.createBg+') no-repeat center center',backgroundSize:'cover'}">
+		<section ref='zmiti-cache-page' v-if='!createImg' class="lt-full zmiti-share-content" :style="{background: 'url('+imgs.bg+') no-repeat center bottom',backgroundSize:'cover'}">
 			<div>
 				<div class="zmiti-text">
 					<img :src="imgs.text" />
@@ -29,6 +29,7 @@
 							
 						</div>
 						<div class="zmiti-upload-hand">
+							<img :src='headimgurl' />
 							<span>{{myhandname}}</span>的手
 						</div>
 					</div>
@@ -39,6 +40,7 @@
 
 				<div class="zmiti-qrcode">
 					<img :src="imgs.qrcode">
+					<span>长按识别二维码</span>
 				</div>
 				<div class="zmiti-logo">
 					<img :src="imgs.logo">
@@ -77,7 +79,7 @@
 		 		</div>
 		 		<div v-if='!src' v-tap='[share]'  class="zmiti-share-btn">
 		 			<img :src='imgs.btnBg' />
-		 			<span>分享</span>
+		 			<span>请小伙伴围观</span>
 		 		</div>
 		 		<section v-if='!src && false' class="zmiti-team" v-tap='[showTeamPage]'>
 		 			制作团队
@@ -118,6 +120,7 @@
 				uploadImg:'',
 				handImg:'',
 				job:'',
+				headimgurl:imgs.logo,
 				myhandname:'网友'
 
 			}
@@ -141,15 +144,15 @@
 			},
 
 			rechoose(){
+
+				this.restart();
+				return;
 				var {obserable} = this;
+				this.show = false;
 				obserable.trigger({
-					type:'toggleShare',
-					data:{
-						show:false,
-						index:-1,
-						headimg:''
-					}
+					type:'reupload'
 				});
+
 				obserable.trigger({
 					type:'clearFile'
 				});
@@ -287,7 +290,7 @@
 					//zmitiUtil.wxConfig('我是第'+data.num+'位为雄安过周岁者',window.desc);
 				}
 				if(data.headimg){
-					this.html2img();
+					//this.html2img();
 				}
 			});
 
@@ -297,14 +300,16 @@
 				this.uploadImg = data.uploadImg;
 				this.job = data.job;
 				this.myhandname = data.myhandname;
+				this.headimgurl = window.headimgurl||this.imgs.logo;
 				this.backgroundSize = 'cover';
 
 				var url = window.location.href.split('#')[0];
 
 				url = zmitiUtil.changeURLPar(url,'src',this.uploadImg);
 				url = zmitiUtil.changeURLPar(url,'myhandname',encodeURI(this.myhandname));
-
-				zmitiUtil.wxConfig(document.title,window.desc,url);
+				url = zmitiUtil.changeURLPar(url,'headimgurl',this.headimgurl);
+				window.shareImg = this.uploadImg;
+				zmitiUtil.wxConfig((window.nickname||"新华社网友") + '展示了他' + this.myhandname+'的手','劳动最光荣，邀你来展示劳动者的手',url);
 
 				setTimeout(()=>{
 					this.html2img();

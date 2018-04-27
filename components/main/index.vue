@@ -1,29 +1,10 @@
 <template>
 	<transition name='main'>
-		<div class="lt-full zmiti-main-main-ui " :class="{'show':show}" ref='page' v-swipeleft='swipeLeft' v-swiperight='swipeRight'>
+		<div class="lt-full zmiti-main-main-ui " :class="{'show':show}" ref='page' v-swipeleft='swipeLeft' v-swipeup='swipeLeft' v-swiperight='swipeRight' v-swipedown='swipeRight'>
 			<div v-if='currentIndex>-1' class="zmiti-hand-bg" :style="bgStyle">
 			</div>
 			
-			<transition name='main'>
-				<div v-if='currentIndex === -1' class="zmiti-bg">
-					<div    class="lt-full zmiti-bg-mask" :style="{background:'rgba(65,6,7,.5)'}"> </div>
-					<div class="zmiti-hand-bg" :style="{background: 'url('+imgs.myhand+') no-repeat center center',backgroundSize:'cover'}">
-						
-					</div>
-					<div class='zmiti-hand-img' v-tap='[entry]' :style="{background: 'url('+imgs.imgBg+') no-repeat center center',backgroundSize:'cover'}">
-						<img @touchstart='imgStart' :src="imgs.imgBg" class="zmiti-img-bg" >
-						<canvas ref='canvas' :width='pointW' :height='pointH'></canvas>
-						<div class="zmiti-hand">
-							<img @touchstart='imgStart' :src="imgs.myhand" @load='load'>
-						</div>
-
-						<div class='zmiti-title'>
-							<img @touchstart='imgStart' :src="imgs.title">
-						</div>
-						<div class="zmiti-start">开始</div>
-					</div>
-				</div>
-			</transition>
+			<div class="zmiti-bg-mask lt-full"></div>
 			
 			<transition-group name='hand'>
 				<div v-if='currentIndex>-1' :key='hand.url' v-for='hand in handList' class="lt-full zmiti-hand-page" :class="hand.className">
@@ -31,8 +12,8 @@
 					<div class='zmiti-hand-img' :style="{background: 'url('+imgs.imgBg+') no-repeat center center',backgroundSize:'cover'}">
 						<img @touchstart='imgStart' :src="imgs.imgBg" class="zmiti-img-bg">
 						
-						<div class="zmiti-hand" :style="{background:'url('+uploadImg+') no-repeat center center',backgroundSize:backgroundSize}">
-							<img @touchstart='imgStart' :src="hand.url" :style="{opacity:hand.type === 'upload' && uploadImg && uploadState !== 1?0:1}">
+						<div class="zmiti-hand" :style="{background:'url('+(hand.url)+') no-repeat center center',backgroundSize:backgroundSize}">
+							<img @touchstart='imgStart' :src="hand.url" :style="{opacity:(hand.type === 'upload' && uploadImg && uploadState !== 1 )?0:1}" v-if='hand.type !== "insert"' >
 							<input  accept="image/*" @change='upload' v-if='hand.type === "upload" && !uploadImg' type="file" class="lt-full" ref='file' name="">
 							<div v-if='hand.type === "upload" &&  uploadState === 1' class="lt-full zmiti-upload-status">
 								<div class="load-3">
@@ -56,17 +37,25 @@
 							的手
 						</div>
 
-						<div v-if='hand.type !== "upload"'  class="zmiti-name"><span>{{hand.name}}</span>的手</div>
+						<div v-if='hand.type !== "upload"'  class="zmiti-name">
+							<img v-if='hand.img' :src="hand.img">
+							<span>{{hand.name}}</span>的手</div>
 
 					</div>
 				</div>
 			</transition-group>
 
 			<div class="zmiti-year" v-if='currentIndex>-1 && handList[currentIndex].type !== "upload"'>
-				2018
+				劳动节快乐
 			</div>
 			<div v-tap='[entryShare]' class="zmiti-ok" v-if='currentIndex >-1 && handList[currentIndex].type === "upload"'>
-				确定
+				<img :src="imgs.btnBg">
+				<span>确定</span>
+			</div>
+
+
+			<div class="zmiti-info" v-if='showInfo'>
+				<img :src="imgs.hand">
 			</div>
 
 			<Toast :msg='toastMsg'></Toast>
@@ -78,19 +67,20 @@
 	import './index.css';
 	import {imgs} from '../lib/assets.js';
 	import $ from 'jquery';
-	import Point from './point';
+	
 	import Toast from '../toast/toast';
 	export default {
-		props:['obserable','pv','randomPv','nickname','headimgurl'],
+		props:['obserable','pv','src','nickname','headimgurl'],
 		name:'zmitiindex',
 		data(){
 			return{
 				imgs,
 				pointW:0,
 				pointH:0,
+				showInfo:true,
 				showTeam:false,
 				bgStyle:{
-					background:'url('+imgs.hand1+') no-repeat center center',
+					background:'url('+imgs.bg+') no-repeat center center',
 					backgroundSize:'cover'
 				},
 				showQrcode:false,
@@ -98,9 +88,9 @@
 				viewW:window.innerWidth,
 				viewH:window.innerHeight,
 				handList,
-				backgroundSize:'contain',
-				currentIndex:-1,
-				iNow:-1,
+				backgroundSize:'cover',
+				currentIndex:0,
+				iNow:0,
 				desc:'',
 				toastMsg:'',
 				isLeft:true,
@@ -118,6 +108,9 @@
 		},
 		components:{
 			Toast
+		},
+		watch:{
+			
 		},
 		
 		methods:{
@@ -139,7 +132,7 @@
 					this.desc = this.handType[(Math.random()*this.handType.length)|0];
 				}
 
-				var index =( Math.random()*this.handList.length) | 0;
+				var index =( Math.random()*4) | 0;
 				var {obserable} = this;
 				this.show = false;
 				
@@ -172,6 +165,7 @@
 	  		    var s = this;
 			      formData.append('setupfile', this.$refs['file'][0].files[0]);
 			      formData.append('uploadtype', 0);
+			      formData.append('issavethumb', 1);
 			     
 			    $.ajax({
 			        type: "POST",
@@ -195,11 +189,13 @@
 				        console.log(data);
 				        //alert('服务器返回正确');
 				        s.uploadState = 2;
+				        s.backgroundSize = 'contain';
 
 				        //alert('返回正确 getret =>' + data.getret + ' getmsg =>' + data.getmsg);
 				        if (data.getret === 0) {
 	 						//s.deleteImg(data.getfileurl[0].datainfourl)
 	 						s.uploadImg = data.getfileurl[0].datainfourl;
+	 						s.handList[s.handList.length-1].url = data.getfileurl[0].datainfourl;
 	 						s.backgroundSize = 'cover'
 				        }else{
 				        	setTimeout(()=>{
@@ -225,13 +221,7 @@
 
 				},2000)
 			},
-			load(e){
-				this.pointW = e.target.width;
-				this.pointH = e.target.height;
-				setTimeout(()=>{this.initPoints();},100)
-
-				
-			},
+			
 			 swipeLeft(){
 				var s = this;
 				if(s.currentIndex<=-1){
@@ -262,11 +252,11 @@
 				
 				
 				s.currentIndex = (s.currentIndex + 1) % s.handList.length;
-				this.bgStyle = {
+				/*this.bgStyle = {
 					background:'url('+this.handList[this.currentIndex].url+') no-repeat center center / cover',
 					backgroundSize:'cover'
 				}
-				console.log(this.bgStyle)
+				console.log(this.bgStyle)*/
 				//s.loadMusic(s.handList[s.currentIndex].audio);
 				//this.iNow = s.currentIndex;
 				var classList = [
@@ -329,10 +319,10 @@
 				//console.log(s.currentIndex)
 
 				s.currentIndex = s.currentIndex % handList.length;
-				this.bgStyle = {
+				/*this.bgStyle = {
 					background:'url('+this.handList[this.currentIndex].url+') no-repeat center center / cover',
 					backgroundSize:'cover'
-				}
+				}*/
 				var classList = [
 					'left1 ',
 					'left transition1',
@@ -370,58 +360,7 @@
 				handList[currentIndex].className = classList[2];
 				this.isLeft = false;
 			},
-			initPoints(){
-
-				var canvas = this.$refs['canvas'];
-				var context = canvas.getContext('2d');
-
-				var width = canvas.width,
-					height = canvas.height;
-
-
-
-				var img = new Image();
-				img.onload = ()=>{
-					for(var i = 0 ;i<62;i++){
-						var p = new Point({
-							img,
-							context,
-						})
-						this.points.push(p);
-					}
-				}
-				img.src = imgs.point;
-
-				var animationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame,
-					m = Math;
-
-				var render = ()=>{
-					if(width<=0){
-						width = canvas.width,
-						height = canvas.height;
-					}
-					context.clearRect(0,0,width,height);
-
-					this.points.map((point,i)=>{
-						point.angle += point.speed;
-						//point.angle = (point.angle | 0)
-						point.angle %= 360;
-						point.x += m.sin(point.angle/180*m.PI);
-
-						point.y -= 2;
-						if(point.y<0){
-							point.y = point.defaultY
-						}
-						point.update();
-					});
-
-					this.currentIndex === -1 && animationFrame(render);
-				}
-				
-				render()
-
-
-			},
+			
 			imgStart(e){
 				e.preventDefault();
 			}
@@ -449,12 +388,28 @@
 				}
 
 			}
-			if(this.currentIndex>-1){
-				this.bgStyle = {
-					background:'url('+this.handList[this.currentIndex].url+') no-repeat center center',
-					backgroundSize:'cover'
-				}
-			}
+
+			
+			var {obserable} = this;
+			obserable.on('reupload',()=>{
+				this.handList[this.handList.length -1].url = this.imgs.upload;
+				this.uploadImg = '';
+				this.show = true;
+
+			});
+			obserable.on('clearFile',()=>{
+
+				 this.$refs['file'].value = ''
+
+			});
+
+			obserable.on('hideInfo',()=>{
+				setTimeout(()=>{
+					this.showInfo = false;
+				},2000)
+			})
+
+			
 
 		}
 	}

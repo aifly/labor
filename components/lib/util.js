@@ -29,7 +29,7 @@ var zmitiUtil = {
 	wxConfig: function(title, desc, url, isDebug = false) {
 		var s = this;
 
-		var img = window.baseUrl + '/assets/images/300.jpg';
+		var img = window.shareImg || window.baseUrl + '/assets/images/300.jpg';
 
 		var appId = this.wxInfo().wxappid;
 
@@ -110,6 +110,8 @@ var zmitiUtil = {
 	},
 
 	getOauthurl: function(obserable) {
+
+		
 		var s = this;
 		var {
 			wxappid,
@@ -118,8 +120,26 @@ var zmitiUtil = {
 		} = this.wxInfo();
 
 		if (!s.isWeiXin()) {
+			 
 			return;
 		}
+		var key = 'headimgurl'
+		if(window.localStorage.getItem('nickname') && window.localStorage.getItem(key)){
+
+			if (obserable) {
+				obserable.trigger({
+					type: 'setUserInfo',
+					data: {
+						nickname:window.localStorage.getItem('nickname'),
+						headimgurl: window.localStorage.getItem(key)
+					}
+				})
+			}
+			window.nickname = window.localStorage.getItem('nickname')
+			window.headimgurl = window.localStorage.getItem(key);
+			return;
+		}
+
 		$.ajax({
 			type: 'post',
 			//url: window.baseUrl + '/weixin/getwxuserinfo/',
@@ -129,7 +149,8 @@ var zmitiUtil = {
 				wxappid,
 				wxappsecret
 			},
-			error: function() {},
+			error: function() {
+			},
 			success: function(dt) {
 
 				if (dt.getret === 0) {
@@ -143,17 +164,11 @@ var zmitiUtil = {
 					window.openid = s.openid;
 
 
+					window.localStorage.setItem(key,s.headimgurl);
+					window.localStorage.setItem('nickname',s.nickname);
+				 
 
-					if (obserable) {
-						obserable.trigger({
-							type: 'setUserInfo',
-							data: {
-								nickname: s.nickname,
-								headimgurl: s.headimgurl
-							}
-						})
-
-					}
+					
 
 					//var URI = window.location.href.split('#')[0];
 
@@ -161,6 +176,7 @@ var zmitiUtil = {
 
 				} else {
 					if (s.isWeiXin()) {
+
 
 						var wish = s.getQueryString('src');
 						var nickname = s.getQueryString('nickname');

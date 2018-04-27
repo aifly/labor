@@ -9,7 +9,7 @@ export default class Point{
 
 		this.angle = 0;
 
-		this.maxHeight = (Math.random()*20 + 70);
+		this.maxHeight = (Math.random()*100 + 100);
 
 		this.iNow = 0;
 
@@ -25,7 +25,7 @@ export default class Point{
 
 	render(){
 
-		var {context,defaultX,defaultY,img,x,y,size ,maxHeight,rotate} = this;
+		var {context,defaultX,defaultY,img,x,y,size ,maxHeight,rotate,iNow} = this;
 		context.save();
 		context.rotate = rotate;
 		context.drawImage(img,x,y,size,size);

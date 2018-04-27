@@ -52,8 +52,8 @@
     z-index: 10;
     -webkit-transform: scale(0.82);
     transform: scale(0.82);
-    -webkit-transform-origin: center 10vh;
-    transform-origin: center 10vh; }
+    -webkit-transform-origin: center 20vh;
+    transform-origin: center 20vh; }
     .zmiti-share-main-ui .zmiti-createimg img {
       width: auto;
       height: 100%; }
@@ -70,7 +70,7 @@
       height: 100%;
       left: 0;
       top: 0;
-      box-shadow: 0 0 0 6px #ca141f, 10px 10px 0 6px #b2aea8;
+      box-shadow: 6px 6px 0 6px #b2aea8;
       z-index: -1; }
     .zmiti-share-main-ui .zmiti-createimg:after {
       content: '长按保存图片';
@@ -173,7 +173,7 @@
     -webkit-box-orient: horizontal;
     position: relative;
     width: 90%;
-    margin: 70px auto; }
+    margin: 50px auto; }
     .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare > div {
       width: 50%;
       position: relative; }
@@ -182,18 +182,23 @@
       left: 50%;
       -webkit-transform: translate3d(-50%, 0, 0);
       transform: translate3d(-50%, 0, 0);
-      width: 200px;
-      bottom: 20px; }
+      width: 150px;
+      bottom: 40px; }
     .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-job, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand {
       position: absolute;
       bottom: 30px;
       left: 3%;
-      color: #912426; }
+      color: #912426;
+      font-size: 26px; }
       .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-job span, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand span {
         font-weight: bold; }
     .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand {
       right: 6%;
       left: auto; }
+      .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-upload-hand img {
+        width: 40px;
+        vertical-align: bottom;
+        border-radius: 50%; }
     .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-other-hand, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-myhand {
       position: absolute;
       width: 90%;
@@ -201,22 +206,30 @@
       top: 5%;
       height: 80%; }
   .zmiti-share-main-ui .zmiti-share-content .zmiti-qrcode {
-    width: 200px;
-    margin: 0 auto; }
+    width: 90%;
+    position: relative;
+    top: 60px; }
+    .zmiti-share-main-ui .zmiti-share-content .zmiti-qrcode img {
+      width: 150px;
+      display: block; }
+    .zmiti-share-main-ui .zmiti-share-content .zmiti-qrcode span {
+      font-size: 21px;
+      position: relative; }
   .zmiti-share-main-ui .zmiti-share-content .zmiti-logo {
     position: absolute;
     width: 200px;
     font-size: 22px;
     text-align: center;
     right: 0;
-    bottom: 120px; }
+    bottom: 40px;
+    color: #fff; }
     .zmiti-share-main-ui .zmiti-share-content .zmiti-logo img {
-      margin: 0 auto;
+      margin: 0 auto 20px;
       width: 50px;
       display: block; }
   .zmiti-share-main-ui .zmiti-share-btns {
-    height: 2.1rem;
-    color: #fff;
+    height: 1.6rem;
+    color: #ffe3a6;
     width: 66%;
     left: 17%;
     bottom: 0rem;
@@ -321,5 +334,9 @@
         margin: .5rem auto;
         font-size: .4rem;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5); }
+
+@media all and (min-width: 750px) and (min-height: 1440px) {
+  .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare {
+    margin: 150px auto; } }
 
 /*# sourceMappingURL=index.css.map */

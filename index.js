@@ -3,6 +3,7 @@ import './components/css/index.css';
 import Main from './components/main/index';
 import Music from './components/music/index';
 import Share from './components/share/index';
+import Index from './components/index/index';
 import Obserable from './components/lib/obserable';
 import {
 	imgs
@@ -50,11 +51,12 @@ new Vue({
 		<audio src='./assets/music/photo.mp3' ref='photo'></audio>
 		<audio src='./assets/music/bg.mp3' ref='audio'></audio>
 		<audio src='./assets/music/tu.mp3' ref='tu' loop></audio>
-		<Music   :obserable='obserable'></Music>
 		<Index  v-if='show && !isShare'  :obserable='obserable'></Index>
 	*/
 	template: `<div>
-		<Main  v-if='show'  :obserable='obserable'></Main>
+		<Music   :obserable='obserable'></Music>
+		<Index  v-if='show'  :obserable='obserable'></Index>
+		<Main :src='src'  v-if='show'  :obserable='obserable'></Main>
 		<Share v-if='show ' :obserable='obserable'></Share>
 		<div  v-if='!loaded' :style='{background:"#158ae4"}' class='zmiti-loading lt-full'>
 			<div class='zmiti-loading-ui'>
@@ -67,7 +69,6 @@ new Vue({
 			    </a>
 			</div>
 		</div>
-
 	
 	</div>`,
 	methods: {
@@ -118,15 +119,17 @@ new Vue({
 		
 		Music,
 		Main,
-		Share
+		Share,
+		Index
 	},
 	mounted() {
 
 
 		var src = (zmitiUtil.getQueryString('src'));
 		var myhandname = decodeURI(zmitiUtil.getQueryString('myhandname'));
+		var headimgurl = decodeURI(zmitiUtil.getQueryString('headimgurl'));
 
-		this.isShare = src && myhandname;
+		this.isShare = src && myhandname && headimgurl;
 
 		this.src = src;
 
@@ -134,11 +137,13 @@ new Vue({
 
 		if(this.isShare){
 			arr.push(src);
-			handList[0].className= 'right'
-			handList.unshift({
+			//handList[0].className= 'right'
+			handList.splice(handList.length-1,0,{
 				url:src,
+				type:'insert',
+				img:headimgurl,
 				name:myhandname,
-				className: "active transition"
+				className: "right1"
 			});
 		}
 
@@ -161,7 +166,7 @@ new Vue({
 
 		});
 
-		//zmitiUtil.wxConfig(document.title, window.desc);
+		zmitiUtil.getOauthurl()
 
 	}
 })

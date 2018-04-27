@@ -11,30 +11,205 @@ $bgColor: #f1ebcb;
 	background: $bgColor;
 
 	opacity:0;
-	z-index: -1;
-
+	z-index: 10;
+	@include transition(1s);
 	&.show{
 		opacity: 1;
+	}
+	
+
+
+	
+	.zmiti-bg{
+		//@include transform3d();
+		&.main-enter-active, &.main-leave-active {
+			@include transition(1s);
+		}
+
+		&.main-enter, &.main-leave-to {
+			opacity:0;
+		}
+	}
+
+	.zmiti-hand-page{
+
+		&.hand-enter-active, &.hand-leave-active {
+			@include transition(1s .5s);
+		}
+
+		&.hand-enter, &.hand-leave-to {
+			opacity:0;
+		}
+		@include transformOrigin(center 90%);
+		&.left {
+			opacity: 1;
+			//@include transform(scale(.7) translate3d(-$viewW/1.5, 0, 0));
+			@include transform(translate3d(-5.66667rem, 0, 0) scale(.3));
+			z-index: 200;
+
+		}
+
+		&.transition {
+			@include transition_transform(.5s);
+		}
+		&.transition1 {
+			@include transition_transform(.3s .1s);
+		}
+
+		&.left1 {
+			z-index: -1;
+			@include transform(translate3d(-$viewW, 0, 0)  scale(.3));
+		}
+
+		&.right {
+			opacity: 1;
+			@include transform(translate3d(5.66667rem, 0, 0) scale(.3));
+			z-index: 200;
+		}
+
+		&.right1 {
+			z-index: -1;
+			@include transform(translate3d($viewW, 0, 0)  scale(.3));
+		}
+
+		&.active {
+			@include transform(rotateY(0));
+			z-index: 201;
+		}
+	}
+
+	.zmiti-hand-img{
+		@include pos(a);
 		z-index: 10;
+		height: 90%;
+		@include transform(translate3d(-50%,0,0));
+		left: 50%;
+		top: 2vh;
+		z-index: 22;
+
+
+
+
+		canvas{
+			@include pos(a);
+			left: 5%;
+			top: 3%;
+			z-index:100;
+		}
+
+		img.zmiti-img-bg{
+			opacity:0;
+			height: 100%;
+			width: auto;
+		}
+
+		.zmiti-hand{
+			@include pos(a);
+			top: 0;
+			left: 0;
+			width: 90%;
+			left: 5%;
+			top:3%;
+			img{@include br(10px);}
+
+			input{
+				@include pos(a);
+				opacity:0;
+				z-index: 10;
+				width: 100%;
+				height: 100%;
+				left:0;
+				top: 0;
+
+			}
+
+			.zmiti-upload-status{
+				background: #ababa8;
+				color:#912426;
+				font-weight: bold;
+				text-align: center;
+				
+				span{
+					border:1px solid red;
+					@include pos(a);
+					left: 50%;
+					@include transform(translate3d(-50%,0,0));
+				}
+			}
+
+		}
+
+		.zmiti-subtitle{
+			@include pos(a);
+			left: 5%;
+			bottom: 3%;
+		}
+		.zmiti-name{
+			@include pos(a);
+			bottom: 40px;
+			right: 5%;
+			color:#912426;
+			font-weight: bold;	
+			span{
+				font-size: 60px;
+			}
+		}
+	}
+
+
+	.zmiti-hand-bg{
+		@include pos(a);
+		width: $viewW;
+		left: 0;
+		top: 0;
+		height: 100vh;
+		
+		&:before{
+			content:'';
+			display: none;
+			@include pos(a);
+			left: 0;
+			top: 0;
+			z-index: 10;
+			width: 100%;
+			height: 100%;
+			background:rgba(47,7,8,.56);
+		}
 	}
 
 	.zmiti-title{
-		margin-top: 10vh;
-		opacity: 0;
-
-	}
-	.zmiti-index{
-		margin-top: 5vh;
-	}
-
-	.zmiti-canvas{
-		box-sizing:border-box;
-		//border:1px solid red;
 		@include pos(a);
-		top: 10vh;
-		left: 0;
+		top: 2%;
+		width: 90%;
+		@include transform(translate3d(-50%,0,0));
+		left: 50%;
 	}
 	
+
+
+	.zmiti-start{
+		width: 240px;
+		height: 60px;
+		line-height: 60px;
+		@include br(10px);
+		text-align: center;
+		color:#ffe3a6;
+		@include pos(a);
+		bottom: 6%;
+		left: 50%;
+		@include transform(translate3d(-50%,0,0));
+
+		span{
+			@include pos(a);
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			line-height: 2.1;
+			font-size: 36px;
+		}
+
+	}
 	
 
 
@@ -103,4 +278,14 @@ $bgColor: #f1ebcb;
 }
 
 .zmiti-play {
+}
+
+@media all and (min-width:750px)  and (min-height: 1440px) {
+	
+	.zmiti-index-main-ui{
+		.zmiti-hand-img{
+			height: 74vh;
+			top: 12vh;
+		}
+	}
 }
