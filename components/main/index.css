@@ -171,6 +171,18 @@
       height: 80%; }
       .zmiti-main-main-ui .zmiti-hand-img .zmiti-hand img {
         border-radius: 10px; }
+      .zmiti-main-main-ui .zmiti-hand-img .zmiti-hand .zmiti-hand-text {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.4);
+        bottom: -20px;
+        padding: 20px;
+        left: 0;
+        color: #fff;
+        font-size: 26px; }
+        .zmiti-main-main-ui .zmiti-hand-img .zmiti-hand .zmiti-hand-text section {
+          width: 100%;
+          text-align: right;
+          font-weight: bold; }
       .zmiti-main-main-ui .zmiti-hand-img .zmiti-hand input {
         position: absolute;
         opacity: 0;

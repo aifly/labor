@@ -7,12 +7,17 @@
 			<div class="zmiti-bg-mask lt-full"></div>
 			
 			<transition-group name='hand'>
-				<div v-if='currentIndex>-1' :key='hand.url' v-for='hand in handList' class="lt-full zmiti-hand-page" :class="hand.className">
+				<div v-if='currentIndex>-1' :key='hand.name' v-for='hand in handList' class="lt-full zmiti-hand-page" :class="hand.className">
 				
 					<div class='zmiti-hand-img' :style="{background: 'url('+imgs.imgBg+') no-repeat center center',backgroundSize:'cover'}">
 						<img @touchstart='imgStart' :src="imgs.imgBg" class="zmiti-img-bg">
 						
 						<div class="zmiti-hand" :style="{background:'url('+(hand.url)+') no-repeat center center',backgroundSize:backgroundSize}">
+							<section class="zmiti-hand-text">
+								{{hand.text}}
+								<section class="">{{hand.author}}</section>
+							</section>
+
 							<img @touchstart='imgStart' :src="hand.url" :style="{opacity:(hand.type === 'upload' && uploadImg && uploadState !== 1 )?0:1}" v-if='hand.type !== "insert"' >
 							<input  accept="image/*" @change='upload' v-if='hand.type === "upload" && !uploadImg' type="file" class="lt-full" ref='file' name="">
 							<div v-if='hand.type === "upload" &&  uploadState === 1' class="lt-full zmiti-upload-status">

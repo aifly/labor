@@ -190,6 +190,21 @@ $color: #fffb88;
 			height: 80%;
 			img{@include br(10px);}
 
+			.zmiti-hand-text{
+				@include pos(a);
+				background: rgba(0,0,0,.4);
+				bottom: -20px;
+				padding: 20px;
+				left:0;
+				color:#fff;
+				font-size: 26px;
+				section{
+					width: 100%;
+					text-align: right;
+					font-weight: bold;
+				}
+			}
+
 			input{
 				@include pos(a);
 				opacity:0;
