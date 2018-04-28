@@ -200,6 +200,8 @@ $color:#ca141f;
 			&>div{
 				width: 50%;
 				@include pos(r);
+
+
 			}
 
 			.zmiti-brage{
@@ -235,7 +237,7 @@ $color:#ca141f;
 			.zmiti-other-hand,.zmiti-myhand{
 				@include pos(a);
 				width: 90%;
-				left: 3%;
+				left: 5%;
 				top: 5%;
 				height: 80%;
 			}

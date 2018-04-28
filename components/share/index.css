@@ -142,7 +142,7 @@
         background: #fff;
         border-radius: 1.3rem;
         position: absolute;
-        top: -1.85714rem;
+        top: -1.8571428571rem;
         padding: 10px;
         box-sizing: border-box; }
         .zmiti-share-main-ui .zmiti-share-main .zmiti-share-img-C .zmiti-headimg:before {
@@ -202,7 +202,7 @@
     .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-other-hand, .zmiti-share-main-ui .zmiti-share-content .zmiti-hand-compare .zmiti-myhand {
       position: absolute;
       width: 90%;
-      left: 3%;
+      left: 5%;
       top: 5%;
       height: 80%; }
   .zmiti-share-main-ui .zmiti-share-content .zmiti-qrcode {

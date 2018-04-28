@@ -7,6 +7,8 @@ $color: #fffb88;
 .zmiti-main-main-ui{
 	//
 
+	@include transform3d();
+
 
 
 	.zmiti-bg-mask{
@@ -227,7 +229,7 @@ $color: #fffb88;
 			color:#912426;
 			font-weight: bold;	
 			span{
-				font-size: 50px;
+				font-size: 40px;
 			}
 			img{
 				width: 60px;
@@ -250,7 +252,10 @@ $color: #fffb88;
 
 		left: 50%;
 		margin-left: -120px;
-		z-index: 205;
+		z-index: 215;
+
+
+
 		span{
 			@include pos(a);
 			width: 100%;

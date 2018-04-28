@@ -163,7 +163,7 @@ var zmitiUtil = {
 					window.headimgurl = s.headimgurl;
 					window.openid = s.openid;
 
-
+					//document.title = s.headimgurl;
 					window.localStorage.setItem(key,s.headimgurl);
 					window.localStorage.setItem('nickname',s.nickname);
 				 

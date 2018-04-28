@@ -29,6 +29,10 @@
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 .zmiti-main-main-ui {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  -webkit-perspective: 800px;
   width: 750px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -197,7 +201,7 @@
       color: #912426;
       font-weight: bold; }
       .zmiti-main-main-ui .zmiti-hand-img .zmiti-name span {
-        font-size: 50px; }
+        font-size: 40px; }
       .zmiti-main-main-ui .zmiti-hand-img .zmiti-name img {
         width: 60px;
         border-radius: 50%;
@@ -214,7 +218,7 @@
     line-height: 60px;
     left: 50%;
     margin-left: -120px;
-    z-index: 205; }
+    z-index: 215; }
     .zmiti-main-main-ui .zmiti-ok span {
       position: absolute;
       width: 100%;

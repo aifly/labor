@@ -33,7 +33,7 @@
 						</div>
 
 						<div class="zmiti-img-desc" v-if='hand.type === "upload"'>
-							<textarea @input='input' v-model='desc' :style="textareaStyle" placeholder="请输入描述(6个字以内)"></textarea>
+							<textarea ref='input' @input='input' v-model='desc' :style="textareaStyle" placeholder="请输入描述(6个字以内)"></textarea>
 							的手
 						</div>
 
@@ -119,34 +119,41 @@
 				this.desc = this.desc.substring(0,6);
 			},
 			entryShare(){//进入share页面
-				if(!this.uploadImg){
-					this.toastMsg = '请先上传图片';
 
-					setTimeout(()=>{
-						this.toastMsg = '';
-					},2000);
+				
+				this.$refs['input'][0].blur();
 
-					return;
-				}
-				if(!this.desc){
-					this.desc = this.handType[(Math.random()*this.handType.length)|0];
-				}
-
-				var index =( Math.random()*4) | 0;
-				var {obserable} = this;
-				this.show = false;
 				
 				setTimeout(()=>{
-					obserable.trigger({
-						type:'fillShare',
-						data:{
-							handImg:this.handList[index].url,
-							uploadImg : this.uploadImg,
-							job:this.handList[index].name,
-							myhandname:this.desc
-						}
-					})
-				},500);
+					if(!this.uploadImg){
+						this.toastMsg = '请先上传图片';
+
+						setTimeout(()=>{
+							this.toastMsg = '';
+						},2000);
+
+						return;
+					}
+					if(!this.desc){
+						this.desc = this.handType[(Math.random()*this.handType.length)|0];
+					}
+
+					var index =( Math.random()*4) | 0;
+					var {obserable} = this;
+					this.show = false;
+					
+					setTimeout(()=>{
+						obserable.trigger({
+							type:'fillShare',
+							data:{
+								handImg:this.handList[index].url,
+								uploadImg : this.uploadImg,
+								job:this.handList[index].name,
+								myhandname:this.desc
+							}
+						})
+					},500);
+				},1)
 
 			},
 
@@ -379,15 +386,18 @@
 	
 		mounted(){
 			window.$ = $;
-
+			var u = navigator.userAgent;
+			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
 			window.onresize = ()=>{
-
+				if(!isAndroid){
+					return;
+				}
 				if(window.innerHeight<this.viewH){
 					this.textareaStyle = {
 						background:'#fff',
 						height:'300px',
 						width:'100%'
-
+ 
 					}
 				}
 				else{
