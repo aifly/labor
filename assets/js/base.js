@@ -73,7 +73,7 @@ var handSource = [
 		author:'新华社云南分社记者 杨静摄'
 	},{
 		url:'./assets/images/3.jpg',
-		name:"博士",
+		name:"科学家",
 		text:'4月28日，湖北省农业科学院粮食作物研究所水稻杂种优势利用研究室李三和博士正在进行水稻花药培养试验。',
 		author:'新华社湖北分社记者 侯文坤摄'
 	},{
@@ -143,9 +143,44 @@ var handSource = [
 		author:'新华社安徽分社记者 姜刚摄'
 	},{
 		url:'./assets/images/17.jpg',
-		name:'机长',
-		text:'这是一位机长的手，身为机长，他总是娴熟而冷静，万里高空亦能春风十里，每一次抵达都是新的出发。',
+		name:'飞行员',
+		 text:'这是一位机长的手，身为机长，他总是娴熟而冷静，万里高空亦能春风十里，每一次抵达都是新的出发。',
 		author:'新华社四川分社记者 许茹摄'
+	},{
+		url:'./assets/images/18.jpg',
+		name:'茶农',
+		text:'峨眉山有机茶茶园的茶农被茶汁染色的双手。',
+		author:'新华社四川分社记者 江宏景摄'
+	},{
+		url:'./assets/images/19.jpg',
+		name:'月饼制作工人',
+		text:'安徽省祁门县平里镇贵溪村，一位工人在为古法手工月饼包馅。',
+		author:'新华社安徽分社记者 孟鼎博摄'
+	},{
+		url:'./assets/images/20.jpg',
+		name:'点钞员',
+		 text:'41岁的黄春梅是中国农业银行云南个旧市支行的职员，已经工作了25年，每天清点百余万的现金，曾四次荣获云南省农行业务技能比赛点钞单项第一。',
+		author:'新华社云南分社记者 杨静摄'
+	},{
+		url:'./assets/images/21.jpg',
+		name:'核雕工人',
+		 text:'安徽省宣城市非遗传承人马勇兵在制作核雕。',
+		author:'新华社安徽分社记者 孟鼎博摄'
+	},{
+		url:'./assets/images/22.jpg',
+		name:'女建筑工人',
+		 text:'这是中铁十七局集团青运村项目部女工人杨小兰的双手，杨小兰今年42岁，四川省广元市朝天区两河口乡人，从事建筑工作13年。',
+		author:'新华社山西分社记者 曹阳摄'
+	},{
+		url:'./assets/images/23.jpg',
+		name:'砚台制作工人',
+		 text:'安徽省歙县手艺人温鑫在制作歙砚。',
+		author:'新华社安徽分社记者 孟鼎博摄'
+	},{
+		url:'./assets/images/24.jpg',
+		name:'科学家',
+		 text:'中国科学技术大学研究人员在测试机器人“佳佳”（左）的手部。',
+		author:'新华社安徽分社记者 孟鼎博摄'
 	}
 
 
@@ -160,7 +195,7 @@ var handList = [
 	}
 ];
 var arr = [];
-for(var i = 0;i<17;i++){
+for(var i = 0;i<10;i++){
 	var index = (Math.random()*handSource.length)|0;
 	var obj = handSource.splice(index,1)[0];
 	//obj.url = './assets/images/hand2.jpg';
