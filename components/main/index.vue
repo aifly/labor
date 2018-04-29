@@ -7,13 +7,13 @@
 			<div class="zmiti-bg-mask lt-full"></div>
 			
 			<transition-group name='hand'>
-				<div v-if='currentIndex>-1' :key='hand.name' v-for='hand in handList' class="lt-full zmiti-hand-page" :class="hand.className">
+				<div v-if='currentIndex>-1' :key='hand.url' v-for='hand in handList' class="lt-full zmiti-hand-page" :class="hand.className">
 				
-					<div class='zmiti-hand-img' :style="{background: 'url('+imgs.imgBg+') no-repeat center center',backgroundSize:'cover'}">
+					<div class='zmiti-hand-img' :key='hand.key+1' :style="{background: 'url('+imgs.imgBg+') no-repeat center center',backgroundSize:'cover'}">
 						<img @touchstart='imgStart' :src="imgs.imgBg" class="zmiti-img-bg">
 						
 						<div class="zmiti-hand" :style="{background:'url('+(hand.url)+') no-repeat center center',backgroundSize:backgroundSize}">
-							<section class="zmiti-hand-text">
+							<section class="zmiti-hand-text" v-if='!hand.type'>
 								{{hand.text}}
 								<section class="">{{hand.author}}</section>
 							</section>
@@ -198,7 +198,7 @@
 			        },
 			        success(data){
 			        	 
-				        console.log(data);
+				        //console.log(data);
 				        //alert('服务器返回正确');
 				        s.uploadState = 2;
 				        s.backgroundSize = 'contain';
@@ -208,7 +208,9 @@
 	 						//s.deleteImg(data.getfileurl[0].datainfourl)
 	 						s.uploadImg = data.getfileurl[0].datainfourl;
 	 						s.handList[s.handList.length-1].url = data.getfileurl[0].datainfourl;
-	 						s.backgroundSize = 'cover'
+	 						setTimeout(()=>{
+	 							s.backgroundSize = 'cover'
+	 						},10)
 
 	 						/*s.headimgurl = window.headimgurl||s.imgs.logo;
 

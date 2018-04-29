@@ -193,11 +193,13 @@ $color: #fffb88;
 			.zmiti-hand-text{
 				@include pos(a);
 				background: rgba(0,0,0,.4);
-				bottom: -20px;
+				bottom: -25px;
 				padding: 20px;
 				left:0;
 				color:#fff;
 				font-size: 26px;
+				width: 93%;
+				@include br(10px);
 				section{
 					width: 100%;
 					text-align: right;
@@ -244,7 +246,7 @@ $color: #fffb88;
 			color:#912426;
 			font-weight: bold;	
 			span{
-				font-size: 40px;
+				font-size: 46px;
 			}
 			img{
 				width: 60px;

@@ -174,11 +174,13 @@
       .zmiti-main-main-ui .zmiti-hand-img .zmiti-hand .zmiti-hand-text {
         position: absolute;
         background: rgba(0, 0, 0, 0.4);
-        bottom: -20px;
+        bottom: -25px;
         padding: 20px;
         left: 0;
         color: #fff;
-        font-size: 26px; }
+        font-size: 26px;
+        width: 93%;
+        border-radius: 10px; }
         .zmiti-main-main-ui .zmiti-hand-img .zmiti-hand .zmiti-hand-text section {
           width: 100%;
           text-align: right;
@@ -213,7 +215,7 @@
       color: #912426;
       font-weight: bold; }
       .zmiti-main-main-ui .zmiti-hand-img .zmiti-name span {
-        font-size: 40px; }
+        font-size: 46px; }
       .zmiti-main-main-ui .zmiti-hand-img .zmiti-name img {
         width: 60px;
         border-radius: 50%;
