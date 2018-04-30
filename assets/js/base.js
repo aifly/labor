@@ -88,12 +88,12 @@ var handSource = [
 	},{
 		url:'./assets/images/6.jpg',
 		name:"建筑工人",
-		text:'2018年4月27日，建筑工人蔡武成在固定建筑部件。',
+		text:'2018年4月27日，中铁十七局集团青运村项目部工人蔡武成在固定建筑部件。',
 		author:'新华社记者 曹阳摄'
 	},{
 		url:'./assets/images/7.jpg',
-		name:"雕花剪纸",
-		text:' 湖北仙桃６８岁雕花剪纸传承人马又甫的手，他说：“握刀要正，下刀要顺，开片要严，行刀要匀。”雕花剪纸是民间广泛流传的一种艺术形式。',
+		name:"雕花剪纸人",
+		text:' 湖北仙桃68岁雕花剪纸传承人马又甫的手，他说：“握刀要正，下刀要顺，开片要严，行刀要匀。”雕花剪纸是民间广泛流传的一种艺术形式。',
 		author:'新华社记者 罗鑫摄'
 	},{
 		url:'./assets/images/8.jpg',
@@ -103,7 +103,7 @@ var handSource = [
 	},{
 		url:'./assets/images/9.jpg',
 		name:"银器制作工人",
-		text:'2018年2017年9月13日，云南省职业技能大赛大理赛区手工银器制作选拔赛中，选手李耀华全神贯注雕刻牡丹花。 ',
+		text:'2017年9月13日，云南省职业技能大赛大理赛区手工银器制作选拔赛中，选手李耀华全神贯注雕刻牡丹花。 ',
 		author:'新华社记者 丁怡全摄'
 	},{
 		url:'./assets/images/10.jpg',
@@ -123,8 +123,8 @@ var handSource = [
 	},{
 		url:'./assets/images/13.jpg',
 		name:'医生',
-		text:'张玲丽是荣成市第三人民医院的一名医生，正手持听诊器准备给患者诊断。',
-		author:'新华社 记者 王阳摄'
+		text:'张玲丽是山东省荣成市第三人民医院的一名医生，正手持听诊器准备给患者诊断。',
+		author:'新华社记者 王阳摄'
 	},{
 		url:'./assets/images/14.jpg',
 		name:'助产士',
@@ -194,7 +194,7 @@ var handList = [
 	}
 ];
 var arr = [];
-for(var i = 0;i<23;i++){
+for(var i = 0;i<10;i++){
 	var index = (Math.random()*handSource.length)|0;
 	var obj = handSource.splice(index,1)[0];
 	//obj.url = './assets/images/hand2.jpg';

@@ -104,6 +104,7 @@
 					height:'100%',
 					width:'50%'
 				},
+				isEntry:false,
 				uploadState:0,//还未上传 1 正在上传 2上传完成
 				points:[],
 				handType:window.handType,
@@ -125,6 +126,10 @@
 			},
 			entryShare(){//进入share页面
 
+				if(this.isEntry){
+					return;
+				}
+				this.isEntry = true;
 				
 				this.$refs['input'][0].blur();
 
@@ -148,6 +153,8 @@
 					this.show = false;
 					
 					setTimeout(()=>{
+
+
 						obserable.trigger({
 							type:'fillShare',
 							data:{
@@ -252,7 +259,6 @@
 				if(s.currentIndex<=-1){
 					return;
 				}
-				this.isLeftFirst = true;
 				this.iNow = (s.currentIndex + 1) % s.handList.length;
 				this.initLeft();
 			},
@@ -266,7 +272,6 @@
 				if(this.iNow<0){
 					this.iNow = this.handList.length - 1;
 				}
-				this.isRightFirst=  true;
 				this.initRight();
 			},
 

@@ -307,6 +307,8 @@
 				url = zmitiUtil.changeURLPar(url,'myhandname',encodeURI(this.myhandname));
 				url = zmitiUtil.changeURLPar(url,'headimgurl',this.headimgurl);
 				window.shareImg = this.uploadImg;
+
+				
 				zmitiUtil.wxConfig((window.nickname||"新华社网友") + '展示了TA' + this.myhandname+'的手','劳动最光荣，一起来展示劳动的手吧',url);
 
 				setTimeout(()=>{

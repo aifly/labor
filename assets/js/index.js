@@ -12126,6 +12126,7 @@
 					height: '100%',
 					width: '50%'
 				},
+				isEntry: false,
 				uploadState: 0, //还未上传 1 正在上传 2上传完成
 				points: [],
 				handType: window.handType,
@@ -12147,6 +12148,11 @@
 				var _this = this;
 
 				//进入share页面
+
+				if (this.isEntry) {
+					return;
+				}
+				this.isEntry = true;
 
 				this.$refs['input'][0].blur();
 
@@ -12170,6 +12176,7 @@
 					_this.show = false;
 
 					setTimeout(function () {
+
 						obserable.trigger({
 							type: 'fillShare',
 							data: {
@@ -12269,7 +12276,6 @@
 				if (s.currentIndex <= -1) {
 					return;
 				}
-				this.isLeftFirst = true;
 				this.iNow = (s.currentIndex + 1) % s.handList.length;
 				this.initLeft();
 			},
@@ -12283,7 +12289,6 @@
 				if (this.iNow < 0) {
 					this.iNow = this.handList.length - 1;
 				}
-				this.isRightFirst = true;
 				this.initRight();
 			},
 
@@ -22951,6 +22956,7 @@
 				url = _libUtil2['default'].changeURLPar(url, 'myhandname', encodeURI(_this2.myhandname));
 				url = _libUtil2['default'].changeURLPar(url, 'headimgurl', _this2.headimgurl);
 				window.shareImg = _this2.uploadImg;
+
 				_libUtil2['default'].wxConfig((window.nickname || "新华社网友") + '展示了TA' + _this2.myhandname + '的手', '劳动最光荣，一起来展示劳动的手吧', url);
 
 				setTimeout(function () {
