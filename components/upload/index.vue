@@ -163,12 +163,12 @@
 	  					
 			      formData.append('setupfile', this.$refs['file'].files[0]);
 			      formData.append('uploadtype', 0);
-			     
 			      $.ajax({
 			        type: "POST",
 			        contentType: false,
 			        processData: false,
-			        url: window.protocol+'//api.zmiti.com/v2/share/upload_file/',
+			        //url: window.protocol+'//api.zmiti.com/v2/share/upload_file/',
+			        url:"http://h5.zhongguowangshi.com/interface/public/index.php?s=v2/share/upload_file/",
 			        data: formData,
 			        error(e){
 			        	
@@ -180,7 +180,7 @@
 			        },
 			        success(data){
 			        	 
-				        //console.log(data);
+				        console.log(data);
 				        //alert('服务器返回正确');
 				        if (data.getret === 0) {
 				        	obserable.trigger({type:'toggleMusic'});

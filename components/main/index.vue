@@ -185,6 +185,8 @@
 			      formData.append('setupfile', this.$refs['file'][0].files[0]);
 			      formData.append('uploadtype', 0);
 			      formData.append('issavethumb', 1);
+			      formData.append('imagename', 'labor');
+			      
 			     
 			    $.ajax({
 			        type: "POST",
